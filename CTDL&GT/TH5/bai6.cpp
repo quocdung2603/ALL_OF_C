@@ -1,0 +1,50 @@
+// class Node
+// {
+//     public : 
+//         int data;
+//         Node* pLeft; 
+//         Node * pRight;
+//         Node(int input)
+// 		{
+// 		       data = input;
+// 		       pLeft = pRight = NULL;
+// 		}
+// 		Node();
+// };
+
+// class BST
+// {
+//     public:
+//     Node *root;
+//     // bool addNode(int);
+//     // void inorder(Node*visit); //Khai bao truoc ham them Node vao BST
+//     int degreeOf(int); //Khai bao truoc ham
+    
+// };
+
+// int BST::degreeOf(int data)
+// {
+// 	int cnt=0;
+//     if(root==NULL)
+// 		return 0;
+// 	else 
+// 	{
+// 		Node*tmp=root;
+// 		while(tmp!=NULL)
+// 		{
+// 			if(data > tmp->data)
+// 			{
+// 				tmp=tmp->pRight;
+// 				cnt++;
+// 			}
+// 			else if(data < tmp->data)
+// 			{
+// 				tmp=tmp->pLeft;
+// 				cnt++;
+// 			}
+// 			else if(data==tmp->data)
+// 				return cnt;
+// 		}
+// 		return 0;
+// 	}
+// }

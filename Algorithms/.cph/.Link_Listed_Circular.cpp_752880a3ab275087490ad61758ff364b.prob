@@ -1,0 +1,1 @@
+{"name":"Local: Link_Listed_Circular","url":"d:\\ALL_OF_C++\\Algorithms\\Link_Listed_Circular.cpp","tests":[{"id":1670469084821,"input":"5\n1 2 3 4 5 \n","output":"5 4 3 2 1  "}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\ALL_OF_C++\\Algorithms\\Link_Listed_Circular.cpp","group":"local","local":true}
