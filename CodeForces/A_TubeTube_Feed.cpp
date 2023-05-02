@@ -32,26 +32,34 @@ void file() {freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);}
 var a = document.querySelectorAll(".MJX_Assistive_MathML")
 a.forEach(s=> s.remove())
 */
-
+/*
+    tổng thời gian xem : t giây
+    có n video , i thuộc  (1..n) 
+    ai: tgian xem của video thứ i
+    bi: giá trị giải trí của video ai
+*/
 void solve()
 {
-    int a,b,c,d;cin>>a>>b>>c>>d;
-    if(a==c && b==d)
+    int n,k;cin>>n>>k;
+    vii a(n);
+    for(int i=0;i<n;i++) cin>>a[i].fi;
+    for(int i=0;i<n;i++) cin>>a[i].se;
+    
+    int mx=-1,ans=-1,cnt=0;
+    for(int i=0;i<n;i++)
     {
-        cout<<0 nl;
-        return;
+        // cout<<cnt<<" " << mx <<" " << ans nl;
+        if(cnt + a[i].fi <=k)
+        {
+            if(a[i].se > mx)
+            {
+                mx = a[i].se;
+                ans=i+1;
+            }
+        }
+        cnt++;
     }
-    if(b>d)
-    {
-        cout<<-1 nl;
-        return;
-    }
-    if( a + abs(d-b) < c)
-    {
-        cout<<-1 nl;
-        return;
-    }
-    cout<<abs(d-b) + abs((a + abs(d-b))-c) nl;
+    cout<<ans nl;
 }
 signed main()
 {

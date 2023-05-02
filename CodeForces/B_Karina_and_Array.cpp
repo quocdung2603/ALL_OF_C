@@ -32,26 +32,19 @@ void file() {freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);}
 var a = document.querySelectorAll(".MJX_Assistive_MathML")
 a.forEach(s=> s.remove())
 */
-
+/*      
+    Vẻ đẹp của 1 cặp số a,b: a*b
+    Vẻ đẹp của mảng: max(vẻ đẹp cặp số ) liền kề trong mảng
+    Loại bỏ bất kì số nào => tính max(vẻ đẹp của mảng)
+*/  
 void solve()
 {
-    int a,b,c,d;cin>>a>>b>>c>>d;
-    if(a==c && b==d)
-    {
-        cout<<0 nl;
-        return;
-    }
-    if(b>d)
-    {
-        cout<<-1 nl;
-        return;
-    }
-    if( a + abs(d-b) < c)
-    {
-        cout<<-1 nl;
-        return;
-    }
-    cout<<abs(d-b) + abs((a + abs(d-b))-c) nl;
+    int n;cin>>n;
+    vi a(n);
+    for(int i=0;i<n;i++) cin>>a[i];
+    sort(all(a));
+    int ans = max(a[0]*a[1],a[n-1]*a[n-2]);
+    cout<<ans nl;
 }
 signed main()
 {

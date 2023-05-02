@@ -35,23 +35,21 @@ a.forEach(s=> s.remove())
 
 void solve()
 {
-    int a,b,c,d;cin>>a>>b>>c>>d;
-    if(a==c && b==d)
+    string s; cin>>s;
+    int cnt=0;
+    if(s.sz==1)
     {
-        cout<<0 nl;
+        if(s[0]=='_') cout<<2 nl;
+        else cout<<1 nl;
         return;
     }
-    if(b>d)
+    for(int i=1;i<s.sz;i++)
     {
-        cout<<-1 nl;
-        return;
+        if(s[i]=='_' && s[i-1]=='_') cnt++;
     }
-    if( a + abs(d-b) < c)
-    {
-        cout<<-1 nl;
-        return;
-    }
-    cout<<abs(d-b) + abs((a + abs(d-b))-c) nl;
+    if(s[0]=='_') cnt++;
+    if(s[s.sz-1]=='_') cnt++;
+    cout<<cnt nl;
 }
 signed main()
 {

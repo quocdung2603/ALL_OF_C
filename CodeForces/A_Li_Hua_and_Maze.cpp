@@ -35,23 +35,17 @@ a.forEach(s=> s.remove())
 
 void solve()
 {
-    int a,b,c,d;cin>>a>>b>>c>>d;
-    if(a==c && b==d)
-    {
-        cout<<0 nl;
-        return;
-    }
-    if(b>d)
-    {
-        cout<<-1 nl;
-        return;
-    }
-    if( a + abs(d-b) < c)
-    {
-        cout<<-1 nl;
-        return;
-    }
-    cout<<abs(d-b) + abs((a + abs(d-b))-c) nl;
+
+    int n,m, x1,y1,x2,y2; cin>>n>>m>>x1>>y1>>x2>>y2;
+    int ans1=0,ans2=0;
+    if(x1==1 && y1==1 || x1==n && y1==m || x1==n && y1==1 || x1==1 && y1==m) ans1=2;
+    else if(x1==1 || x1==n || y1==1 || y1==m) ans1=3;
+    else ans1=4;
+
+    if(x2==1 && y2==1 || x2==n && y2==m || x2==n && y2==1 || x2==1 && y2==m) ans2=2;
+    else if(x2==1 || x2==n || y2==1 || y2==m) ans2=3;
+    else ans2=4;
+    cout<<min(ans1,ans2) nl;
 }
 signed main()
 {

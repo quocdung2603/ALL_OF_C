@@ -35,23 +35,24 @@ a.forEach(s=> s.remove())
 
 void solve()
 {
-    int a,b,c,d;cin>>a>>b>>c>>d;
-    if(a==c && b==d)
+    int n,k;cin>>n>>k;
+    int x=-1;
+    for(int i=0;i<=n;i++)
     {
-        cout<<0 nl;
-        return;
+        if(i*(i-1)/2 + (n-i)*(n-i-1)/2 == k)
+        {
+            x=i;
+            break;
+        }
     }
-    if(b>d)
+    if(x==-1) no nl;
+    else 
     {
-        cout<<-1 nl;
-        return;
+        yes nl;
+        for(int i=0; i<x;i++) cout<<1<<" ";
+        for(int i=0;i<n-x;i++) cout<<-1<<" ";
+        cout nl;
     }
-    if( a + abs(d-b) < c)
-    {
-        cout<<-1 nl;
-        return;
-    }
-    cout<<abs(d-b) + abs((a + abs(d-b))-c) nl;
 }
 signed main()
 {
