@@ -35,32 +35,20 @@ a.forEach(s=> s.remove())
 
 void solve()
 {
-    int n; cin>>n;
+    int n,m; cin>>n>>m;
+    map<int,int> mp;
     vector<int> ans;
-    if(n%2==0)
+    for(int i=1;i<=m;i++)
     {
-        cout<<-1 nl;
-        return;
-    }
-    while(n>1)
-    {
-        int x = (n-1)/2 , y = (n+1)/2;
-        if(x%2!=0) 
+        int x; cin>>x;
+        if(mp[x]==0 && ans.sz<n)
         {
-            ans.bb(2);
-            n=x;
+            ans.bb(i);
         }
-        else if(y%2!=0) 
-        {
-            ans.bb(1);
-            n=y;
-        }
+        mp[x]++;
     }
-    cout<<ans.sz nl;
-    for(int i = ans.sz-1 ;i>=0; i--)
-    {
-        cout<<ans[i]<<" ";
-    }
+    while(ans.sz<n) ans.bb(-1);
+    for(int i=ans.sz-1;i>=0;i--) cout<<ans[i]<<" ";
     cout nl;
 }
 signed main()

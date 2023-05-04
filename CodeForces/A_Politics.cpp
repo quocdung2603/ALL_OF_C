@@ -33,35 +33,21 @@ var a = document.querySelectorAll(".MJX_Assistive_MathML")
 a.forEach(s=> s.remove())
 */
 
+/*
+    có n người tham gia ,  k vấn đề thảo luận
+    mình là người đầu tiên ( vị trí 1 ) => giữ lại những người cùng ý kiến với mình
+*/
 void solve()
 {
-    int n; cin>>n;
-    vector<int> ans;
-    if(n%2==0)
+    int n,k; cin>>n>>k;
+    string s; cin>>s;
+    int cnt=n;
+    for(int i=1;i<n;i++)
     {
-        cout<<-1 nl;
-        return;
+        string x; cin>>x;
+        if(x!=s) cnt--;
     }
-    while(n>1)
-    {
-        int x = (n-1)/2 , y = (n+1)/2;
-        if(x%2!=0) 
-        {
-            ans.bb(2);
-            n=x;
-        }
-        else if(y%2!=0) 
-        {
-            ans.bb(1);
-            n=y;
-        }
-    }
-    cout<<ans.sz nl;
-    for(int i = ans.sz-1 ;i>=0; i--)
-    {
-        cout<<ans[i]<<" ";
-    }
-    cout nl;
+    cout<<cnt nl;
 }
 signed main()
 {

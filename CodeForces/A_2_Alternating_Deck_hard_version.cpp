@@ -10,8 +10,8 @@ using namespace std;
 #define yes cout << "YES"
 #define no cout << "NO"
 #define int long long
-#define double long double
-#define bb push_back
+#define ld long double
+#define pb push_back
 #define all(r) r.begin(), r.end()
 #define rall(r) r.rbegin(), r.rend()
 #define sz size()
@@ -27,41 +27,53 @@ const int maxN = 1e6 + 2;
 const int minN = 1e5 + 10;
 const int mod = 1e9 + 7;
 const int INF = 1e18;
-void file() {freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);}
-/*
-var a = document.querySelectorAll(".MJX_Assistive_MathML")
-a.forEach(s=> s.remove())
-*/
-
 void solve()
 {
     int n; cin>>n;
-    vector<int> ans;
-    if(n%2==0)
+    int aw = 1, ab = 0 , bw = 0 , bb =0, cnt =0, a=1;
+    bool check=false;
+    n--;
+    while(n>0)
     {
-        cout<<-1 nl;
-        return;
-    }
-    while(n>1)
-    {
-        int x = (n-1)/2 , y = (n+1)/2;
-        if(x%2!=0) 
+        a++;
+
+        cnt++;
+        if(n<=a) a=n;
+        if(check==false)
         {
-            ans.bb(2);
-            n=x;
+            if(a%2==0)
+            {
+                bw+=a/2;
+                bb+=a/2;
+            }
+            else 
+            {
+                bw+=a/2;
+                bb+=a/2+1;
+            }
         }
-        else if(y%2!=0) 
+        else
         {
-            ans.bb(1);
-            n=y;
+            if(a%2==0)
+            {
+                aw += a/2;
+                ab += a/2;
+            }
+            else 
+            {
+                aw += a/2+1;
+                ab += a/2;
+            }
         }
+        if(cnt==2)
+        {
+            if(check==true) check=false;
+            else check=true;
+            cnt=0;
+        } 
+        n-=a;
     }
-    cout<<ans.sz nl;
-    for(int i = ans.sz-1 ;i>=0; i--)
-    {
-        cout<<ans[i]<<" ";
-    }
-    cout nl;
+    cout<<aw<<" "<<ab << " " <<bw<<" "<<bb nl;
 }
 signed main()
 {

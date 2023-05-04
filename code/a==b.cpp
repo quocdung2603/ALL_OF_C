@@ -1,16 +1,49 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
+#define nl << '\n'
+#define fi first
+#define se second
+#define vd vector<double>
+#define vi vector<int>
+#define vii vector<pair<int, int>>
+#define vtr vector<string>
+#define yes cout << "YES"
+#define no cout << "NO"
+#define int long long
+#define double long double
+#define bb push_back
+#define all(r) r.begin(), r.end()
+#define rall(r) r.rbegin(), r.rend()
+#define sz size()
+#define wh while
+#define fon(i, l, r) for (int i = l; i <= r; i++)
+#define fod(i, r, l) for (int i = r; i >= l; i--)
+#define fa(x, a) for (auto x : a)
+#define gcd __gcd
+#define fast_in_out()                 \
+ios_base::sync_with_stdio(false); \
+cin.tie(NULL);
+const int maxN = 1e6 + 2;
+const int minN = 1e5 + 10;
+const int mod = 1e9 + 7;
+const int INF = 1e18;
+void file() {freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);}
+/*
+var a = document.querySelectorAll(".MJX_Assistive_MathML")
+a.forEach(s=> s.remove())
+*/
 
 void solve()
 {
-    int aa,bb,x,y,z,m;cin>>aa>>bb;
-    if(aa==bb) 
+    int n,x,y; cin>>n;
+    if(n%2==0)
     {
-        cout<<0;
+        cout<<-1 nl;
         return;
     }
     queue<int>a,b;
-    a.push(aa);
+    vi ans;
+    a.push(1);
     int i=1;
     while(true)
     {
@@ -18,18 +51,16 @@ void solve()
         {
             while(!a.empty())
             {
-                x=a.front()*2;
-                y=a.front()/3;
-                z=a.front()+1;
-                m=a.front()*a.front();
+                x=a.front()*2 - 1;
+                ans.bb(1);
+                y=a.front()*2 + 1;
+                ans.bb(2);
                 b.push(x);
                 b.push(y);
-                b.push(z);
-                b.push(m);
                 a.pop();
-                if(x==bb || y==bb|| z==bb || m==bb)
+                if(x==n || y==n)
                 {
-                    cout<<i;
+                    cout<<i nl;
                     return;
                 }
             }
@@ -38,18 +69,16 @@ void solve()
         {
             while(!b.empty())
             {
-                x=b.front()*2;
-                y=b.front()/3;
-                z=b.front()+1;
-                m=b.front()*b.front();
+                x=b.front()*2 - 1;
+                ans.bb(1);
+                y=b.front()*2 + 1;
+                ans.bb(2);
                 a.push(x);
                 a.push(y);
-                a.push(z);
-                a.push(m);
                 b.pop();
-                if(x==bb || y==bb || z==bb || m==bb)
+                if(x==n || y==n )
                 {
-                    cout<<i;
+                    cout<<i nl;
                     return;
                 }
             }
@@ -57,8 +86,15 @@ void solve()
         i++;
     }
 }
-int main()
+signed main()
 {
-    solve();
+    fast_in_out();
+    int u = 1;
+    //
+    cin >> u;
+    while (u--)
+    {
+        solve();
+    }
     return 0;
 }

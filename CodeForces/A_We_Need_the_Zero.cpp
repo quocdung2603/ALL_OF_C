@@ -35,7 +35,29 @@ a.forEach(s=> s.remove())
 
 void solve()
 {
+    int n; cin>>n; 
+    vi a(n); 
+    for(int i=0;i<n;i++) cin>>a[i];
+    for(int i=0; i < 256;i++) //x
+    {
 
+        vi b(n);
+        for(int j=0;j<n;j++)
+        {
+            b[j]=(a[j] ^ i);
+        }
+        int s=b[0];
+        for(int j=1;j<n;j++)
+        {
+            s=(s^b[j]);
+        }
+        if(s==0)
+        {
+            cout<<i nl;
+            return;
+        }
+    }
+    cout <<-1 nl;
 }
 signed main()
 {

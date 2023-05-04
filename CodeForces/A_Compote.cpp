@@ -35,40 +35,22 @@ a.forEach(s=> s.remove())
 
 void solve()
 {
-    int n; cin>>n;
-    vector<int> ans;
-    if(n%2==0)
+    int a,b,c; cin>>a>>b>>c;
+    int x=0,y=0,z=0;
+    while(x<=a && y<=b && z<=c)
     {
-        cout<<-1 nl;
-        return;
+        x++;
+        y+=2;
+        z+=4;
     }
-    while(n>1)
-    {
-        int x = (n-1)/2 , y = (n+1)/2;
-        if(x%2!=0) 
-        {
-            ans.bb(2);
-            n=x;
-        }
-        else if(y%2!=0) 
-        {
-            ans.bb(1);
-            n=y;
-        }
-    }
-    cout<<ans.sz nl;
-    for(int i = ans.sz-1 ;i>=0; i--)
-    {
-        cout<<ans[i]<<" ";
-    }
-    cout nl;
+    cout<<x+y+z-7;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
     //
-    cin >> u;
+    // cin >> u;
     while (u--)
     {
         solve();
