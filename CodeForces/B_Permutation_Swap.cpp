@@ -11,7 +11,7 @@ using namespace std;
 #define no cout << "no"
 #define int long long
 #define double long double
-#define bb push_back
+#define pb push_back
 #define all(r) r.begin(), r.end()
 #define rall(r) r.rbegin(), r.rend()
 #define sz size()
@@ -36,46 +36,26 @@ a.forEach(s=> s.remove())
 void solve()
 {
     int n; cin>>n;
-    vi a(n);
-    for(int i=0;i<n;i++) cin>>a[i];
-    // a.bb(0);
-    if(is_sorted(a.begin(), a.end()))
+    vi a(n),b;
+    for(int i=0; i<n;i++) cin>>a[i];    
+    for(int i=0;i<n;i++) 
     {
-        yes nl;
-        cout<<1<<" "<<1 nl;
-        return;
+        if(a[i]==i+1) continue;
+        b.pb(abs((i+1) - a[i]));
     }
-    int l=0,r=0,ok=0;
-    for(int i=0;i<n-1;i++)
+    int ans=b[0];
+    for(int i=0;i<b.sz;i++)
     {
-        if(a[i] > a[i+1]) 
-        {
-            if(ok==0)
-            {
-                l=i;
-                r=i+1;
-                ok=1;
-            }
-            else 
-            {
-                ok=1;
-                r=i+1;
-            }
-        }
+        ans= gcd(ans, b[i]);
     }
-    // cout<<l<<" "<<r nl;
-    reverse(a.begin()+l , a.begin()+r+1);
-    if(is_sorted(all(a)))
-        yes nl << l+1<<" "<<r+1 nl;
-    else no nl;
-
-    
+    cout<<ans nl;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //cin >> u;
+    //
+    cin >> u;
     while (u--)
     {
         solve();
