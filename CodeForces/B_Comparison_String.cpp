@@ -35,16 +35,16 @@ a.forEach(s=> s.remove())
 
 void solve()
 {
-    int l,r; cin>>l>>r;
-    int s=0;
-    for(int i=1;i<=10000;i++)
+    int n; cin>>n;
+    string s; cin>>s;
+    int cnt=1,mx=1;
+    for(int i=1;i<s.sz;i++)
     {
-        if(i < l  || i > r) continue;
-        else
-        {
-            if(i<10) s+=i;
-        }
+        if(s[i]!=s[i-1]) cnt=1;
+        else cnt++;
+        mx = max(mx,cnt);
     }
+    cout<<mx+1 nl;
 }
 signed main()
 {

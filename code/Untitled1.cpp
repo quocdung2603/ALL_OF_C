@@ -1,67 +1,63 @@
 #include <bits/stdc++.h>
-
 using namespace std;
+#define nl << '\n'
+#define fi first
+#define se second
+#define vd vector<double>
+#define vi vector<int>
+#define vii vector<pair<int, int>>
+#define vtr vector<string>
+#define yes cout << "YES"
+#define no cout << "NO"
+#define int long long
+#define double long double
+#define pb push_back
+#define all(r) r.begin(), r.end()
+#define rall(r) r.rbegin(), r.rend()
+#define sz size()
+#define wh while
+#define fon(i, l, r) for (int i = l; i <= r; i++)
+#define fod(i, r, l) for (int i = r; i >= l; i--)
+#define fa(x, a) for (auto x : a)
+#define gcd __gcd
+#define fast_in_out()                 \
+ios_base::sync_with_stdio(false); \
+cin.tie(NULL);
+const int maxN = 1e6 + 2;
+const int minN = 1e5 + 10;
+const int mod = 1e9 + 7;
+const int INF = 1e18;
+void file() {freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);}
+/*
+var a = document.querySelectorAll(".MJX_Assistive_MathML")
+a.forEach(s=> s.remove())
+*/
+
 void solve()
 {
-    if("kiet" > "thang") return 1;
-    return 0;
-}
-struct sinhvien
-{
-    string mssv, ht;
-    double dgk, dck;
-};
-// cau a
-void nhap(int n, vector<sinhvien> &a)
-{
-    for (int i = 0; i < n; i++)
+    string s; cin>>s;
+    int mx=0,cnt=1;
+    s+='?';
+    for(int i=1;i<s.sz;i++)
     {
-        cout << "Nhap sinh vien thu " << i + 1 << ": \n";
-        cout << "Nhap ma so sinh vien: ";
-        cin >> a[i].mssv;
-        cin.ignore();
-        cout << "Nhap ho va ten: ";
-        getline(cin, a[i].ht);
-        cout << "Nhap diem giua ky: ";
-        cin >> a[i].dgk;
-        cout << "Nhap diem cuoi ky: ";
-        cin >> a[i].dck;
-    }
-}
-// cau b
-void demSoLuongSinhVienHocLai(int n, vector<sinhvien> a)
-{
-    int cnt = 0;
-    for (int i = 0; i < n; i++)
-    {
-        if ((a[i].dgk + a[i].dck) / 2 < 5)
+        if(s[i]==s[i-1]) cnt++;
+        else 
         {
-            cnt++;
+            mx=max(mx,cnt);
+            cnt=1;
         }
     }
-    cout << "So luong sinh vien hoc lai la: " << cnt << endl;
+    mx = max (mx, cnt);
+    cout<<mx;
 }
-// cau c
-void inDanhSachSinhVienTenLaTieu(int n, vector<sinhvien> a)
+signed main()
 {
-    for (int i = 0; i < n; i++)
+    fast_in_out();
+    int u = 1;
+    //cin >> u;
+    while (u--)
     {
-        string tmp=a[i].ht.substr(a[i].ht.size()-5, a[i].ht.size()-1);
-        cout<<tmp <<endl;
-        if(tmp==" Tieu")
-        {
-            cout<<a[i].ht;
-        }
+        solve();
     }
-}
-int main()
-{
-    // int n;
-    // cout<<"Nhap so luong sinh vien: ";
-    // cin >> n;
-    // vector<sinhvien> a(n);
-    // nhap(n,a);
-    // inDanhSachSinhVienTenLaTieu(n,a);
-    cout<<solve();
     return 0;
 }

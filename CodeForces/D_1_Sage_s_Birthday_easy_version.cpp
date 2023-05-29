@@ -32,26 +32,46 @@ void file() {freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);}
 var a = document.querySelectorAll(".MJX_Assistive_MathML")
 a.forEach(s=> s.remove())
 */
+/*
+    5 : 2 
+    6 : 2
+    7 : 
+    1 2 3 4 5 6 7
+    3 1 4 2 6 5 7
 
+*/
 void solve()
 {
-    int l,r; cin>>l>>r;
-    int s=0;
-    for(int i=1;i<=10000;i++)
+    int n; cin>>n;
+    vi a(n);
+    for(int i=0;i<n;i++) cin>>a[i];
+    sort(all(a));
+    if(n%2==0)
     {
-        if(i < l  || i > r) continue;
-        else
+        cout<<n/2-1 nl;
+        for(int i=0;i<n;i++) 
         {
-            if(i<10) s+=i;
+            cout<<a[i+1]<<" "<<a[i]<<" ";
+            i++;
         }
     }
+    else 
+    {
+        cout<<n/2 nl;
+        for(int i=0;i<n-1;i++) 
+        {
+            cout<<a[i+1]<<" "<<a[i]<<" ";
+            i++;
+        }
+        cout<<a[n-1];
+    }
+
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //
-    cin >> u;
+    //cin >> u;
     while (u--)
     {
         solve();

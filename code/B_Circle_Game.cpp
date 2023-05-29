@@ -35,14 +35,38 @@ a.forEach(s=> s.remove())
 
 void solve()
 {
-    int l,r; cin>>l>>r;
-    int s=0;
-    for(int i=1;i<=10000;i++)
+    int n; cin>>n;
+    vi a(n);
+    for(int i=0;i<n;i++) cin>>a[i];
+    if(n%2!=0) cout<<"Mike" nl;
+    else
     {
-        if(i < l  || i > r) continue;
-        else
+        int mn1=INF,mn2=INF,x,y;
+        for(int i=0;i<n;i+=2)
         {
-            if(i<10) s+=i;
+            if(a[i] <mn1)
+            {
+                mn1=a[i];
+                x=i;
+            }
+        }
+        for(int i=1;i<n;i+=2)
+        {
+            if(a[i]<mn2)
+            {
+                mn2=a[i];
+                y=i;
+            }
+        }
+        if(mn1==mn2)
+        {
+            if(x<y) cout<<"Joe" nl;
+            else cout<<"Mike" nl;
+        }
+        else 
+        {
+            if(mn1<mn2) cout<<"Joe" nl;
+            else cout<<"Mike" nl;
         }
     }
 }

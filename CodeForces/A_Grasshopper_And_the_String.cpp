@@ -35,23 +35,31 @@ a.forEach(s=> s.remove())
 
 void solve()
 {
-    int l,r; cin>>l>>r;
-    int s=0;
-    for(int i=1;i<=10000;i++)
-    {
-        if(i < l  || i > r) continue;
-        else
+    string s; cin >> s;
+	vi a;
+	for(int i=0;i<s.sz;i++)
+	{
+        if (s[i]=='A' || s[i]=='E' || s[i]=='I' || s[i]=='O' || s[i]=='U' || s[i]=='Y')
         {
-            if(i<10) s+=i;
+            a.pb(i+1);
         }
     }
+    // cout<<a.sz;
+	a.insert(a.begin(), 0);
+	a.pb(s.sz+1);
+    // fa(x,a) cout<<x <<" ";
+	int mx=-INF;
+	for(int i=1;i<a.sz;i++)
+	{
+        mx=max(mx, a[i]-a[i-1]);
+    }
+    cout<<mx;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //
-    cin >> u;
+    //cin >> u;
     while (u--)
     {
         solve();

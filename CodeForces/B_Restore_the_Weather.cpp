@@ -7,8 +7,8 @@ using namespace std;
 #define vi vector<int>
 #define vii vector<pair<int, int>>
 #define vtr vector<string>
-#define yes cout << "YES"
-#define no cout << "NO"
+#define yes cout << "yes"
+#define no cout << "no"
 #define int long long
 #define double long double
 #define pb push_back
@@ -35,16 +35,24 @@ a.forEach(s=> s.remove())
 
 void solve()
 {
-    int l,r; cin>>l>>r;
-    int s=0;
-    for(int i=1;i<=10000;i++)
+    int n,k; cin>>n>>k;
+    vii a(n);
+    vi b(n);
+    for(int i=0;i<n;i++)
     {
-        if(i < l  || i > r) continue;
-        else
-        {
-            if(i<10) s+=i;
-        }
+        cin>>a[i].fi;
+        a[i].se=i;
     }
+    for(int i=0;i<n;i++) cin>>b[i];
+    sort(all(a));
+    sort(all(b));
+    vi ans(n);
+    for(int i=0;i<n;i++)
+    {
+        ans[a[i].se] = b[i];
+    }
+    for(int i=0;i<n;i++) cout<<ans[i]<<" ";
+    cout nl;
 }
 signed main()
 {

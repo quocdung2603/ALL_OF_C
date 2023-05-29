@@ -35,15 +35,14 @@ a.forEach(s=> s.remove())
 
 void solve()
 {
-    int l,r; cin>>l>>r;
-    int s=0;
-    for(int i=1;i<=10000;i++)
-    {
-        if(i < l  || i > r) continue;
-        else
-        {
-            if(i<10) s+=i;
-        }
+    int n,x; cin>>n;
+    if(n==1) cout<<8 nl;
+    else {
+        if(n%4==0) x = n/4;
+        else x = n/4+1;
+        for(int i=0;i<n-x;i++) cout<<9;
+        for(int i=0;i<x;i++) cout<<8;
+        cout nl;
     }
 }
 signed main()

@@ -32,26 +32,29 @@ void file() {freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);}
 var a = document.querySelectorAll(".MJX_Assistive_MathML")
 a.forEach(s=> s.remove())
 */
-
+/*
+    đếm số cách, k phải tìm x
+*/
 void solve()
 {
-    int l,r; cin>>l>>r;
-    int s=0;
-    for(int i=1;i<=10000;i++)
+    int n,s=0; cin>>n;
+    for(int i=0,x; i<n;i++)
     {
-        if(i < l  || i > r) continue;
-        else
-        {
-            if(i<10) s+=i;
-        }
+        cin>>x;
+        s+=x;
     }
+    int ans=0;
+    for(int i=1;i<=5;i++)
+    {
+        if((s+i)%(n+1)!=1) ans++;
+    }
+    cout<<ans;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //
-    cin >> u;
+    //cin >> u;
     while (u--)
     {
         solve();

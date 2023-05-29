@@ -35,16 +35,42 @@ a.forEach(s=> s.remove())
 
 void solve()
 {
-    int l,r; cin>>l>>r;
-    int s=0;
-    for(int i=1;i<=10000;i++)
+    int n; cin>>n;
+    vi a(n), b(n), c;
+    map<int,int> mp;
+    for(int i=0;i<n;i++) cin>>a[i];
+    for(int i=0;i<n;i++) cin>>b[i];
+    for(int i=0;i<n;i++)
     {
-        if(i < l  || i > r) continue;
-        else
+        if(a[i]==b[i]) continue;
+        else 
         {
-            if(i<10) s+=i;
+            if(a[i] > b[i]) 
+            {
+                no nl;
+                return;
+            }
+            else 
+            {
+                mp[b[i]-a[i]]++;
+                c.pb(i);
+            }
         }
     }
+    // cout<<mp.sz;
+    if(mp.sz<=1)
+    {
+        for(int i=1;i<c.sz;i++)
+        {
+            if(c[i]-c[i-1] > 1)
+            {
+                no nl;
+                return;
+            }
+        }
+        yes nl;
+    }
+    else no nl;
 }
 signed main()
 {

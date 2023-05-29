@@ -35,15 +35,28 @@ a.forEach(s=> s.remove())
 
 void solve()
 {
-    int l,r; cin>>l>>r;
-    int s=0;
-    for(int i=1;i<=10000;i++)
+    int n; cin>>n;
+    vi a(n);
+    int e=0,o=0, mine=mod, mino=mod;
+    for(int i=0;i<n;i++)
     {
-        if(i < l  || i > r) continue;
+        cin>>a[i];
+        if(a[i]%2==0)
+        {
+            e++;
+            mine=min(mine,a[i]);
+        }
         else
         {
-            if(i<10) s+=i;
+            o++;
+            mino=min(mino,a[i]);
         }
+    }
+    if(e==0 || o==0) yes nl;
+    else 
+    {
+        if(min(mine,mino)%2==1) yes nl;
+        else no nl;
     }
 }
 signed main()

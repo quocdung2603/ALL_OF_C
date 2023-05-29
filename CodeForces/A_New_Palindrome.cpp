@@ -35,16 +35,15 @@ a.forEach(s=> s.remove())
 
 void solve()
 {
-    int l,r; cin>>l>>r;
-    int s=0;
-    for(int i=1;i<=10000;i++)
-    {
-        if(i < l  || i > r) continue;
-        else
-        {
-            if(i<10) s+=i;
-        }
-    }
+    string s; cin>>s;
+    map<char,int> mp;
+    int mn = INF;
+    for(int i=0;i<s.sz;i++)
+        mp[s[i]]++;
+    fa(x,mp) mn = min(mn,x.se);
+    // cout<<mp.sz <<" "<<mn nl;
+    if((mp.sz ==1) || (mp.sz==2 && mn==1 )) no nl;
+    else yes nl;
 }
 signed main()
 {

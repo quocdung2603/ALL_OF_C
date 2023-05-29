@@ -35,23 +35,21 @@ a.forEach(s=> s.remove())
 
 void solve()
 {
-    int l,r; cin>>l>>r;
-    int s=0;
-    for(int i=1;i<=10000;i++)
+    int n; cin>>n;
+    map<int,bool> mp;
+    vi a(n);
+    for(int i=0;i<n;i++) 
     {
-        if(i < l  || i > r) continue;
-        else
-        {
-            if(i<10) s+=i;
-        }
+        cin>>a[i];
+        mp[a[i]]=true;
     }
+    cout<<(mp[1]==true ? -1 : 1);
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //
-    cin >> u;
+    //cin >> u;
     while (u--)
     {
         solve();

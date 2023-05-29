@@ -35,23 +35,29 @@ a.forEach(s=> s.remove())
 
 void solve()
 {
-    int l,r; cin>>l>>r;
-    int s=0;
-    for(int i=1;i<=10000;i++)
+    int n,m; cin>>n>>m;
+    vector<bool> a(n+1), b(m+1);
+    vector<pair<int,int>>c;
+    for(int i=1;i<=n;i++)
     {
-        if(i < l  || i > r) continue;
-        else
+        for(int j=1;j<=m;j++)
         {
-            if(i<10) s+=i;
+            if(a[i]!=true || b[j] != true) 
+            {
+                c.pb({i,j});
+                b[j]=true;
+                a[i]=true;
+            }
         }
     }
+    cout<<c.sz nl;
+    for(int i=0;i<c.sz;i++) cout<<c[i].fi<<" "<<c[i].se nl;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //
-    cin >> u;
+    //cin >> u;
     while (u--)
     {
         solve();
