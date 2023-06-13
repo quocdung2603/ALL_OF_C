@@ -34,36 +34,47 @@ a.forEach(s=> s.remove())
 */
 
 void solve()
-{
+{   
     int n,m; cin>>n>>m;
-    vii a(n);
-    vi b(n);
-    for(int i=0;i<n;i++)
+    vi a(n), b(m);
+    for(int i=0;i<n;i++) cin>>a[i];
+    for(int j=0;j<m;j++) cin>>b[j];
+    int x=0,y=0;
+    while(x<a.sz && y<b.sz)
     {
-        cin>>a[i].fi;
-        a[i].se=i;
+        if(a[x] < b[y])
+        {
+            cout<<a[x]<<" ";
+            x++;
+        }
+        else if(a[x] > b[y])
+        {
+            cout<<b[y]<<" ";
+            y++;
+        }
+        else 
+        {
+            cout<<a[x]<<" "<<b[y]<<" ";
+            x++;
+            y++;
+        }
     }
-    for(int i=0;i<n;i++) 
+    while(x<a.sz)
     {
-        cin>>b[i];
+        cout<<a[x]<<" ";
+        x++;
     }
-    sort(all(a));
-    sort(all(b));
-    vi ans(n);
-    for(int i=0;i<n;i++)
+    while(y<b.sz)
     {
-        ans[a[i].se]=b[i];
-        // cout<<b[a[i].se]<<" ";
+        cout<<b[y]<<" ";
+        y++;
     }
-    fa(x,ans) cout<< x <<" ";
-    cout nl;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //
-    cin >> u;
+    //cin >> u;
     while (u--)
     {
         solve();

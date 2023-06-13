@@ -3,10 +3,7 @@ using namespace std;
 #define nl << '\n'
 #define fi first
 #define se second
-#define vd vector<double>
-#define vi vector<int>
-#define vii vector<pair<int, int>>
-#define vtr vector<string>
+#define vt(type) vector<type>
 #define yes cout << "YES"
 #define no cout << "NO"
 #define int long long
@@ -14,8 +11,7 @@ using namespace std;
 #define pb push_back
 #define all(r) r.begin(), r.end()
 #define rall(r) r.rbegin(), r.rend()
-#define sz size()
-#define wh while
+#define sz(x) (int)x.size()
 #define fon(i, l, r) for (int i = l; i <= r; i++)
 #define fod(i, r, l) for (int i = r; i >= l; i--)
 #define fa(x, a) for (auto x : a)
@@ -33,21 +29,27 @@ var a = document.querySelectorAll(".MJX_Assistive_MathML")
 a.forEach(s=> s.remove())
 */
 
+// int kCn(int k, int n)
+// {
+//     int result=1;
+//     for (int i=n, j=1; j<=k; i--, j++) 
+//         result=result*i/j;
+//     return result;
+// }
+
 void solve()
 {
-	for(int i=1;i<=50;i++)
-	{
-		cout<<i nl nl;
-	}
-}	
+    
+}
 signed main()
 {
-	fast_in_out();
-	int u = 1;
-	//cin >> u;
-	while (u--)
-	{
-		solve();
-	}
-	return 0;
+    fast_in_out();
+    int u = 1;
+    //
+    cin >> u;
+    while (u--)
+    {
+        solve();
+    }
+    return 0;
 }

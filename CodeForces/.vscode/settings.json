@@ -5,7 +5,14 @@
         "chrono": "cpp",
         "complex": "cpp",
         "cstdlib": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "*.tcc": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "bitset": "cpp",
+        "algorithm": "cpp"
     },
-    "C_Cpp.errorSquiggles": "enabled"
+    "C_Cpp.errorSquiggles": "enabled",
+    "cph.general.onceMaintainerMessage": false
 }

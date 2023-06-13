@@ -35,32 +35,50 @@ a.forEach(s=> s.remove())
 
 void solve()
 {
-    int n,m; cin>>n>>m;
-    vii a(n);
-    vi b(n);
+    int n,k; cin>>n>>k;
+    string s; cin>>s;
+    map<int,int>mp;
+    int  cnt=0, cnt1=0;
     for(int i=0;i<n;i++)
     {
-        cin>>a[i].fi;
-        a[i].se=i;
+        if(s[i]=='B') cnt++;
+        else cnt1++;    
     }
-    for(int i=0;i<n;i++) 
+    if(cnt==0)
     {
-        cin>>b[i];
+        cout<<k nl;
+        return;
     }
-    sort(all(a));
-    sort(all(b));
-    vi ans(n);
-    for(int i=0;i<n;i++)
+    if(n==k) cout<<cnt1 nl;
+    else 
     {
-        ans[a[i].se]=b[i];
-        // cout<<b[a[i].se]<<" ";
+        if(k==1) 
+        {
+            if(cnt>0)cout<<0 nl;
+            else cout<<1 nl;
+        }
+        else
+        {
+            int mn=INF;
+            int l=0;
+            for(int i=0;i<n;i++)
+            {
+                mp[s[i]]++;
+                while(mp['B']+mp['W']>=k)
+                {
+                    mn = min(mn,mp['W']);
+                    mp[s[l]]--;
+                    l++;
+                }
+            }
+            cout<<mn nl;
+        }
     }
-    fa(x,ans) cout<< x <<" ";
-    cout nl;
 }
 signed main()
 {
-    fast_in_out();
+    ios_base::sync_with_stdio(false);
+    // fast_in_out();
     int u = 1;
     //
     cin >> u;

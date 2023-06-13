@@ -35,28 +35,39 @@ a.forEach(s=> s.remove())
 
 void solve()
 {
-    int n,m; cin>>n>>m;
-    vii a(n);
-    vi b(n);
+    int n; cin>>n;
+    map<int,int> mp;
+    vector<int> a(n);
     for(int i=0;i<n;i++)
     {
-        cin>>a[i].fi;
-        a[i].se=i;
-    }
-    for(int i=0;i<n;i++) 
-    {
-        cin>>b[i];
+        cin>>a[i];
+        mp[a[i]]++;
     }
     sort(all(a));
-    sort(all(b));
-    vi ans(n);
-    for(int i=0;i<n;i++)
+    int cnt=0;
+    for(int i=0;i<n-1;i++)
     {
-        ans[a[i].se]=b[i];
-        // cout<<b[a[i].se]<<" ";
+        for(int j=i+1;j<n;j++)
+        {
+            if(a[i]!=a[j])
+            {
+                if(cnt>=n/2) return;
+                if(mp[a[i]%a[j]]==0)
+                {
+                    cout<<a[i]<<" "<<a[j] nl;
+                    cnt++;
+                    //mp[a[i]%a[j]]++;
+                }
+                else if(mp[a[j]%a[i]]==0)
+                {
+                    cout<<a[j]<<" "<<a[i] nl;
+                    cnt++;
+                    //mp[a[j]%a[i]]++;
+                }
+            }
+        }
     }
-    fa(x,ans) cout<< x <<" ";
-    cout nl;
+
 }
 signed main()
 {

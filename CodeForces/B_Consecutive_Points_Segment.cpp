@@ -32,37 +32,32 @@ void file() {freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);}
 var a = document.querySelectorAll(".MJX_Assistive_MathML")
 a.forEach(s=> s.remove())
 */
-
+int ok[200001] = {0};
 void solve()
 {
-    int n,m; cin>>n>>m;
-    vii a(n);
-    vi b(n);
-    for(int i=0;i<n;i++)
+    int n; cin>>n;
+    vi a(n);
+    for(int i=0;i<n;i++) cin>>a[i];
+    int cnt1=0,cnt2=0,cnt3=0;
+    for(int i=1;i<n;i++)
     {
-        cin>>a[i].fi;
-        a[i].se=i;
+        int k =a[i]-a[i-1];
+        if(k==1) cnt1++;
+        else if(k==2) cnt2++;
+        else if(k==3) cnt3++;
+        else 
+        {
+            no nl;
+            return;
+        }
     }
-    for(int i=0;i<n;i++) 
-    {
-        cin>>b[i];
-    }
-    sort(all(a));
-    sort(all(b));
-    vi ans(n);
-    for(int i=0;i<n;i++)
-    {
-        ans[a[i].se]=b[i];
-        // cout<<b[a[i].se]<<" ";
-    }
-    fa(x,ans) cout<< x <<" ";
-    cout nl;
+    if(cnt2>2 || cnt3>=2 || cnt2>0 && cnt3>0) no nl;
+    else yes nl;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //
     cin >> u;
     while (u--)
     {

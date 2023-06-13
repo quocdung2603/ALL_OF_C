@@ -21,13 +21,17 @@ using namespace std;
 #define fa(x, a) for (auto x : a)
 #define gcd __gcd
 #define fast_in_out()                 \
-ios_base::sync_with_stdio(false); \
-cin.tie(NULL);
+    ios_base::sync_with_stdio(false); \
+    cin.tie(NULL);
 const int maxN = 1e6 + 2;
 const int minN = 1e5 + 10;
 const int mod = 1e9 + 7;
 const int INF = 1e18;
-void file() {freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);}
+void file()
+{
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+}
 /*
 var a = document.querySelectorAll(".MJX_Assistive_MathML")
 a.forEach(s=> s.remove())
@@ -35,35 +39,29 @@ a.forEach(s=> s.remove())
 
 void solve()
 {
-    int n,m; cin>>n>>m;
-    vii a(n);
-    vi b(n);
+    int n, s;
+    cin >> n >> s;
+    vi a(n);
+    for (int i = 0; i < n; i++)
+        cin >> a[i];
+    int l=0,cnt=0,ss=0;
     for(int i=0;i<n;i++)
     {
-        cin>>a[i].fi;
-        a[i].se=i;
+        ss+=a[i];
+        while(ss>s)
+        {
+            ss-=a[l];
+            l++;
+        }
+        cnt+=(i-l+1);
     }
-    for(int i=0;i<n;i++) 
-    {
-        cin>>b[i];
-    }
-    sort(all(a));
-    sort(all(b));
-    vi ans(n);
-    for(int i=0;i<n;i++)
-    {
-        ans[a[i].se]=b[i];
-        // cout<<b[a[i].se]<<" ";
-    }
-    fa(x,ans) cout<< x <<" ";
-    cout nl;
+    cout<<cnt;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //
-    cin >> u;
+    // cin >> u;
     while (u--)
     {
         solve();

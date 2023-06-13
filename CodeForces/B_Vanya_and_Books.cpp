@@ -32,38 +32,26 @@ void file() {freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);}
 var a = document.querySelectorAll(".MJX_Assistive_MathML")
 a.forEach(s=> s.remove())
 */
-
+vector<int> ko = {9,99,999,9999,99999,999999,9999999,99999999,999999999,9999999999};
+vector<int> ok = {9,90,900,9000,90000,900000,9000000,90000000,900000000,9000000000};
 void solve()
 {
-    int n,m; cin>>n>>m;
-    vii a(n);
-    vi b(n);
-    for(int i=0;i<n;i++)
+    int n; cin>>n;
+    int t = lower_bound(all(ko),n) - ko.begin();
+    int s=0,k=1;
+    for(int i=0;i<t;i++)
     {
-        cin>>a[i].fi;
-        a[i].se=i;
+        s+=ok[i]*(i+1);
+        k*=10;
     }
-    for(int i=0;i<n;i++) 
-    {
-        cin>>b[i];
-    }
-    sort(all(a));
-    sort(all(b));
-    vi ans(n);
-    for(int i=0;i<n;i++)
-    {
-        ans[a[i].se]=b[i];
-        // cout<<b[a[i].se]<<" ";
-    }
-    fa(x,ans) cout<< x <<" ";
-    cout nl;
+    int ans = s+(n-k+1)*(t+1);
+    cout<<ans;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //
-    cin >> u;
+    //cin >> u;
     while (u--)
     {
         solve();
