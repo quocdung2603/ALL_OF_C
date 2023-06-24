@@ -3,7 +3,7 @@ using namespace std;
 #define nl << '\n'
 #define fi first
 #define se second
-#define vec(type,name) vector<type>name
+#define vc(type,name) vector<type>name
 #define yes cout << "YES"
 #define no cout << "NO"
 #define int long long
@@ -47,25 +47,14 @@ a.forEach(s=> s.remove())
 // }
 void solve()
 {
-    string s,s1; cin>>s>>s1;
-    sort(all(s));
-    if(sz(s)>sz(s1))
+    int n,k; cin>>n>>k;
+    int cnt=0;
+    for(int i=1;i<=n;i++)
     {
-        no nl;
-        return;
+        if(i/k < n/2) cnt++;
+        else break;
     }
-    for(int i=0;i<=sz(s1)-sz(s);i++)
-    {   
-        string x=s1.substr(i,sz(s));
-        sort(all(x));
-        if(s==x)
-        {
-            yes nl;
-            return;
-        }
-        //cout<<x nl;
-    }
-    no nl;
+    cout<<cnt nl;
 }
 signed main()
 {

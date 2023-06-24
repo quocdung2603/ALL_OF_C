@@ -23,7 +23,8 @@ const int maxN = 1e6 + 2;
 const int minN = 1e5 + 10;
 const int mod = 1e9 + 7;
 const int INF = 1e18;
-void file() {freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);}
+
+//void file() {freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);}
 /*
 var a = document.querySelectorAll(".MJX_Assistive_MathML")
 a.forEach(s=> s.remove())
@@ -47,32 +48,36 @@ a.forEach(s=> s.remove())
 // }
 void solve()
 {
-    string s,s1; cin>>s>>s1;
-    sort(all(s));
-    if(sz(s)>sz(s1))
+    string s; cin>>s;
+    int n; cin>>n;
+    map<int,char> mp;
+    vector<pair<int,char>>a(26);
+    int mx=-1,ans=0; char x;
+    for(int i=0;i<26;i++)
     {
-        no nl;
-        return;
-    }
-    for(int i=0;i<=sz(s1)-sz(s);i++)
-    {   
-        string x=s1.substr(i,sz(s));
-        sort(all(x));
-        if(s==x)
+        cin>>a[i].fi;
+        a[i].se=(i+97);
+        mp[a[i].se]=a[i].fi;
+        if(a[i].fi > mx) 
         {
-            yes nl;
-            return;
+            mx=a[i].fi;
+            x=a[i].se;
         }
-        //cout<<x nl;
+        //swap(a[i].fi,a[i].se);
     }
-    no nl;
+    for(int i=0;i<n;i++) s+=x;
+    for(int i=0;i<sz(s);i++)
+    {
+        ans+=(mp[s[i]]*(i+1));
+    }
+    cout<<ans;
+
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //
-    cin >> u;
+    //cin >> u;
     while (u--)
     {
         solve();

@@ -47,25 +47,9 @@ a.forEach(s=> s.remove())
 // }
 void solve()
 {
-    string s,s1; cin>>s>>s1;
-    sort(all(s));
-    if(sz(s)>sz(s1))
-    {
-        no nl;
-        return;
-    }
-    for(int i=0;i<=sz(s1)-sz(s);i++)
-    {   
-        string x=s1.substr(i,sz(s));
-        sort(all(x));
-        if(s==x)
-        {
-            yes nl;
-            return;
-        }
-        //cout<<x nl;
-    }
-    no nl;
+    int n; cin>>n;
+    if(n>4) cout<<"Alice" nl;
+    else cout<<"Bob" nl;
 }
 signed main()
 {

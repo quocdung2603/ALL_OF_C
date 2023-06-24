@@ -3,7 +3,7 @@ using namespace std;
 #define nl << '\n'
 #define fi first
 #define se second
-#define vec(type,name) vector<type>name
+#define vc(type,name) vector<type>name
 #define yes cout << "YES"
 #define no cout << "NO"
 #define int long long
@@ -36,36 +36,23 @@ a.forEach(s=> s.remove())
 //         result=result*i/j;
 //     return result;
 // }
-// int bin_pow(int a,int b,int mod)
-// {
-//     if(b==0)return 1;
-//     int tmp=bin_pow(a,b/2,mod);
-//     if((b&1)==false){
-//         return (tmp*tmp)%mod;
-//     }
-//     return (a*(tmp*tmp)%mod)%mod;
-// }
+
 void solve()
 {
-    string s,s1; cin>>s>>s1;
-    sort(all(s));
-    if(sz(s)>sz(s1))
+    int n; cin>>n;
+    vc(int,a)(n);
+    int k=0;
+    for(int i=0;i<n;i++) cin>>a[i]; 
+    int cnt=0;
+    for(int i=0;i<n-1;i++)
     {
-        no nl;
-        return;
-    }
-    for(int i=0;i<=sz(s1)-sz(s);i++)
-    {   
-        string x=s1.substr(i,sz(s));
-        sort(all(x));
-        if(s==x)
+        if(abs(a[i]-a[i+1])==1||abs(a[i]-a[i+1])==n-1)
         {
-            yes nl;
-            return;
+            cnt++;
         }
-        //cout<<x nl;
     }
-    no nl;
+    if(cnt==n-1) yes nl;
+    else no nl;
 }
 signed main()
 {

@@ -47,32 +47,20 @@ a.forEach(s=> s.remove())
 // }
 void solve()
 {
-    string s,s1; cin>>s>>s1;
-    sort(all(s));
-    if(sz(s)>sz(s1))
+    int n,x; cin>>n>>x;
+    int s=x;
+    for(int i=0;i<n;i++)
     {
-        no nl;
-        return;
+        int t,f; cin>>t>>f;
+        s=max(s,t+f);
     }
-    for(int i=0;i<=sz(s1)-sz(s);i++)
-    {   
-        string x=s1.substr(i,sz(s));
-        sort(all(x));
-        if(s==x)
-        {
-            yes nl;
-            return;
-        }
-        //cout<<x nl;
-    }
-    no nl;
+    cout<<s;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //
-    cin >> u;
+    //cin >> u;
     while (u--)
     {
         solve();

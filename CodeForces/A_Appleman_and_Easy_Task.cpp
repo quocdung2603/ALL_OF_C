@@ -3,7 +3,7 @@ using namespace std;
 #define nl << '\n'
 #define fi first
 #define se second
-#define vec(type,name) vector<type>name
+#define vc(type,name) vector<type>name
 #define yes cout << "YES"
 #define no cout << "NO"
 #define int long long
@@ -46,33 +46,53 @@ a.forEach(s=> s.remove())
 //     return (a*(tmp*tmp)%mod)%mod;
 // }
 void solve()
-{
-    string s,s1; cin>>s>>s1;
-    sort(all(s));
-    if(sz(s)>sz(s1))
+{   
+    int n; cin>>n;
+    char a[n+2][n+2];
+    for(int i=0;i<=n+1;i++)
     {
-        no nl;
-        return;
+        a[0][i]='?';
+        a[n+1][i]='?';
+        a[i][0]='?';
+        a[n+1][0]='?';
     }
-    for(int i=0;i<=sz(s1)-sz(s);i++)
-    {   
-        string x=s1.substr(i,sz(s));
-        sort(all(x));
-        if(s==x)
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=1;j<=n;j++)
         {
-            yes nl;
-            return;
+            cin>>a[i][j];
         }
-        //cout<<x nl;
     }
-    no nl;
+    
+    int cnt=0;
+    for(int i=1;i<=n;i++)
+    {
+        //int k=0;
+        for(int j=1;j<=n;j++)
+        {
+            int k=0;
+            if(a[i][j-1] =='o') k++;
+            if(a[i][j+1]=='o') k++;
+            if(a[i-1][j]=='o') k++;
+            if(a[i+1][j]=='o') k++;
+            //cout<<k;
+            //cout<<a[i][j]<<" "<<a[i-1][j]<<" "<<a[i][j+1]<<" "<<a[i+1][j]<<" "<<a[i][j-1]<<" "<<k nl;
+            // k=0;
+            if(k%2==0) cnt++;
+            // cout<<a[i][j]<<k<<" "; 
+            // cout<<a[i][j];
+        } 
+        //cout nl;
+    }
+    //cout<<cnt;
+    if(cnt==n*n) yes nl;
+    else no nl;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //
-    cin >> u;
+    //cin >> u;
     while (u--)
     {
         solve();

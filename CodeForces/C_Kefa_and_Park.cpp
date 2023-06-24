@@ -23,7 +23,7 @@ const int maxN = 1e6 + 2;
 const int minN = 1e5 + 10;
 const int mod = 1e9 + 7;
 const int INF = 1e18;
-void file() {freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);}
+//void file() {freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);}
 /*
 var a = document.querySelectorAll(".MJX_Assistive_MathML")
 a.forEach(s=> s.remove())
@@ -45,34 +45,38 @@ a.forEach(s=> s.remove())
 //     }
 //     return (a*(tmp*tmp)%mod)%mod;
 // }
+int n,m;
+vec(bool,visited)(100001);
+vec(int,a)[100001];
+vec(int,b)(n+1);
+
+void dfs(int u) 
+{
+    visited[u]=true;
+    for(auto v : a[u])
+    {
+        if(!visited[v])
+        {
+            dfs(v);
+        }
+    }
+}
 void solve()
 {
-    string s,s1; cin>>s>>s1;
-    sort(all(s));
-    if(sz(s)>sz(s1))
+    cin>>n>>m;
+    for(int i=1;i<=n;i++) cin>>b[i];
+    for(int i=1;i<n;i++)
     {
-        no nl;
-        return;
+        int x,y; cin>>x>>y;
+        a[x].pb(y);
+        a[y].pb(x);
     }
-    for(int i=0;i<=sz(s1)-sz(s);i++)
-    {   
-        string x=s1.substr(i,sz(s));
-        sort(all(x));
-        if(s==x)
-        {
-            yes nl;
-            return;
-        }
-        //cout<<x nl;
-    }
-    no nl;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //
-    cin >> u;
+    //cin >> u;
     while (u--)
     {
         solve();

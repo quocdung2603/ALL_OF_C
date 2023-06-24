@@ -45,25 +45,40 @@ a.forEach(s=> s.remove())
 //     }
 //     return (a*(tmp*tmp)%mod)%mod;
 // }
+//tt
 void solve()
 {
-    string s,s1; cin>>s>>s1;
-    sort(all(s));
-    if(sz(s)>sz(s1))
+    int n; cin>>n;
+    vec(int,a)(n);
+    for(int i=0;i<n;i++) cin>>a[i];
+    queue<int> q;
+    q.push(a[0]);
+    q.push(-a[0]);
+    int k=2;
+    for(int i=1;i<n;i++)
     {
-        no nl;
-        return;
+        for(int j=1;j<=k;j++)
+        {
+            // while(!q.empty())
+            // {
+                int t= q.front();
+                q.pop();
+                q.push(t+a[i]);
+                q.push(t-a[i]);
+            // }
+        }
+        k*=2;
     }
-    for(int i=0;i<=sz(s1)-sz(s);i++)
-    {   
-        string x=s1.substr(i,sz(s));
-        sort(all(x));
-        if(s==x)
+    while(!q.empty())
+    {
+        int t = q.front();
+        q.pop();
+        if(t%360==0)
         {
             yes nl;
             return;
         }
-        //cout<<x nl;
+        //cout<<t<<" ";
     }
     no nl;
 }
@@ -71,8 +86,7 @@ signed main()
 {
     fast_in_out();
     int u = 1;
-    //
-    cin >> u;
+    //cin >> u;
     while (u--)
     {
         solve();

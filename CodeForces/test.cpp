@@ -3,7 +3,7 @@ using namespace std;
 #define nl << '\n'
 #define fi first
 #define se second
-#define vt(type) vector<type>
+#define vec(type,name) vector<type>name
 #define yes cout << "YES"
 #define no cout << "NO"
 #define int long long
@@ -23,7 +23,7 @@ const int maxN = 1e6 + 2;
 const int minN = 1e5 + 10;
 const int mod = 1e9 + 7;
 const int INF = 1e18;
-void file() {freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);}
+//void file() {freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);}
 /*
 var a = document.querySelectorAll(".MJX_Assistive_MathML")
 a.forEach(s=> s.remove())
@@ -36,17 +36,62 @@ a.forEach(s=> s.remove())
 //         result=result*i/j;
 //     return result;
 // }
-
+// int bin_pow(int a,int b,int mod)
+// {
+//     if(b==0)return 1;
+//     int tmp=bin_pow(a,b/2,mod);
+//     if((b&1)==false){
+//         return (tmp*tmp)%mod;
+//     }
+//     return (a*(tmp*tmp)%mod)%mod;
+// }
+vector<bool> vis(100001);
+vector<int> a[100001];
+set<int>s;
+int n,m;
+void DFS(int u) 
+{
+    vis[u]=true;
+    s.insert(u);
+    for(auto &v:a[u])
+    {
+        if(!vis[v])
+        {
+            DFS(v);
+        }
+    }
+}
 void solve()
 {
-    
+    cin>>n>>m;
+    for(int i=1;i<=n;i++)
+    {
+        int k; cin>>k;
+        for(int j=1;j<=k;j++)
+        {
+            int x; cin>>x;
+            a[i].pb(x);
+            a[x].pb(i);
+        }
+    }
+    DFS(m);
+    // for(int i=1;i<=n;i++)
+    // {
+    //     cout<<i<<": ";
+    //     for(auto &x: a[i])
+    //     {
+    //         cout<<x<<" ";
+    //     }
+    //     cout nl;
+    // }
+    cout<<sz(s) nl;
+    fa(x,s) cout<<x<<" ";
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //
-    cin >> u;
+    //cin >> u;
     while (u--)
     {
         solve();

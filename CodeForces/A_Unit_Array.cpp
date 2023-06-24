@@ -47,25 +47,25 @@ a.forEach(s=> s.remove())
 // }
 void solve()
 {
-    string s,s1; cin>>s>>s1;
-    sort(all(s));
-    if(sz(s)>sz(s1))
+    int n; cin>>n;
+    vec(int,a)(n);
+    int cnt=0;
+    for(int i=0;i<n;i++)
     {
-        no nl;
-        return;
+        cin>>a[i]; 
+        if(a[i]==-1) cnt++;
     }
-    for(int i=0;i<=sz(s1)-sz(s);i++)
-    {   
-        string x=s1.substr(i,sz(s));
-        sort(all(x));
-        if(s==x)
+    int k=0;
+    while(true)
+    {
+        if(cnt<=n/2 && cnt%2==0)
         {
-            yes nl;
+            cout<<k nl;
             return;
         }
-        //cout<<x nl;
+        k++;
+        cnt--;
     }
-    no nl;
 }
 signed main()
 {

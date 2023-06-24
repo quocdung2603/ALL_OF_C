@@ -45,27 +45,25 @@ a.forEach(s=> s.remove())
 //     }
 //     return (a*(tmp*tmp)%mod)%mod;
 // }
+
 void solve()
 {
-    string s,s1; cin>>s>>s1;
-    sort(all(s));
-    if(sz(s)>sz(s1))
+    int n; cin>>n;
+    vec(int,a) (n);
+    //map<int,int> mp;
+    int ok[101] {0};
+    for(int i=0;i<n;i++)
     {
-        no nl;
-        return;
+        cin>>a[i];
+        ok[a[i]]++;
     }
-    for(int i=0;i<=sz(s1)-sz(s);i++)
-    {   
-        string x=s1.substr(i,sz(s));
-        sort(all(x));
-        if(s==x)
-        {
-            yes nl;
-            return;
-        }
-        //cout<<x nl;
+    int s=ok[0];
+    for(int i=1;i<n;i++)
+    {
+        if(ok[i] <= ok[i-1])  s+=ok[i];
     }
-    no nl;
+    if(s==n) yes nl;
+    else no nl;
 }
 signed main()
 {
