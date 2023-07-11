@@ -6,7 +6,6 @@ public class B_Ideal_Point {
         {
             int n=sc.nextInt();
             int k=sc.nextInt();
-            int x=n;
             int c1=0,c2=0;
             while(n-->0)
             {

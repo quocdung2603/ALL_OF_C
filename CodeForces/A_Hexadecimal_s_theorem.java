@@ -1,10 +1,8 @@
 import java.util.*;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 public class A_Hexadecimal_s_theorem {
-   static class Solution
+    static class Solution
     {
-        public static void solve(Scanner sc)
+        public void solve(Scanner sc)
         {
             int n =sc.nextInt();
             System.out.print(0+" "+0+" "+n);
