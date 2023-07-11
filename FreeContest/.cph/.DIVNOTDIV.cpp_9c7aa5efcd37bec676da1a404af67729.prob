@@ -1,0 +1,1 @@
+{"name":"Local: DIVNOTDIV","url":"d:\\ALL_OF_C\\FreeContest\\DIVNOTDIV.cpp","tests":[{"id":1687962006957,"input":"2\n2 3 7\n8 4 2","output":"8\n-1"},{"id":1687962068136,"input":"3\n3 2 1\n4 6 9\n10 25 82","output":"3\n16\n90"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\ALL_OF_C\\FreeContest\\DIVNOTDIV.cpp","group":"local","local":true}

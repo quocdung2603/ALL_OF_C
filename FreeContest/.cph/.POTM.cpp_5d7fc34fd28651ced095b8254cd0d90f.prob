@@ -1,0 +1,1 @@
+{"name":"Local: POTM","url":"d:\\ALL_OF_C\\FreeContest\\POTM.cpp","tests":[{"id":1688220348765,"input":"5 3\n1 3 4 6 9\n0 3 1\n1 4 2\n1 5 3","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\ALL_OF_C\\FreeContest\\POTM.cpp","group":"local","local":true}

@@ -11,7 +11,7 @@ using namespace std;
 #define pb push_back
 #define all(r) r.begin(), r.end()
 #define rall(r) r.rbegin(), r.rend()
-#define sz(x) (int)x.size()
+#define sz size()
 #define fon(i, l, r) for (int i = l; i <= r; i++)
 #define fod(i, r, l) for (int i = r; i >= l; i--)
 #define fa(x, a) for (auto x : a)
@@ -45,47 +45,9 @@ a.forEach(s=> s.remove())
 //     }
 //     return (a*(tmp*tmp)%mod)%mod;
 // }
-vector<bool> vis(100001);
-vector<int> a[100001];
-set<int>s;
-int n,m;
-void DFS(int u) 
-{
-    vis[u]=true;
-    s.insert(u);
-    for(auto &v:a[u])
-    {
-        if(!vis[v])
-        {
-            DFS(v);
-        }
-    }
-}
 void solve()
 {
-    cin>>n>>m;
-    for(int i=1;i<=n;i++)
-    {
-        int k; cin>>k;
-        for(int j=1;j<=k;j++)
-        {
-            int x; cin>>x;
-            a[i].pb(x);
-            a[x].pb(i);
-        }
-    }
-    DFS(m);
-    // for(int i=1;i<=n;i++)
-    // {
-    //     cout<<i<<": ";
-    //     for(auto &x: a[i])
-    //     {
-    //         cout<<x<<" ";
-    //     }
-    //     cout nl;
-    // }
-    cout<<sz(s) nl;
-    fa(x,s) cout<<x<<" ";
+    
 }
 signed main()
 {

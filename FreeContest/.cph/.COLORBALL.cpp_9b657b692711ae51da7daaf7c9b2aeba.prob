@@ -1,0 +1,1 @@
+{"name":"Local: COLORBALL","url":"d:\\ALL_OF_C\\FreeContest\\COLORBALL.cpp","tests":[{"id":1688564407125,"input":"4 4 1\n2 2\n3 3","output":""},{"id":1688564414187,"input":"4 4 2\n2 2\n3 3\n2 3\n4 1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\ALL_OF_C\\FreeContest\\COLORBALL.cpp","group":"local","local":true}

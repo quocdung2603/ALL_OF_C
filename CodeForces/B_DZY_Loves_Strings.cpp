@@ -50,7 +50,7 @@ void solve()
 {
     string s; cin>>s;
     int n; cin>>n;
-    map<int,char> mp;
+    map<char,int> mp;
     vector<pair<int,char>>a(26);
     int mx=-1,ans=0; char x;
     for(int i=0;i<26;i++)
@@ -63,13 +63,9 @@ void solve()
             mx=a[i].fi;
             x=a[i].se;
         }
-        //swap(a[i].fi,a[i].se);
     }
     for(int i=0;i<n;i++) s+=x;
-    for(int i=0;i<sz(s);i++)
-    {
-        ans+=(mp[s[i]]*(i+1));
-    }
+    for(int i=0;i<sz(s);i++) ans+=(mp[s[i]]*(i+1));
     cout<<ans;
 
 }
