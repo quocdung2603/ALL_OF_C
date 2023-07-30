@@ -45,15 +45,11 @@ a.forEach(s=> s.remove())
 //     }
 //     return (a*(tmp*tmp)%mod)%mod;
 // }
+//tt
 void solve()
 {
     int n,k; cin>>n>>k;
-    int cnt=0;
-    for(int i=1;i<=n;i++)
-    {
-        if(i/k < n/2) cnt++;
-        else break;
-    }
+    int cnt=(n-2)/k+2;
     cout<<cnt nl;
 }
 signed main()

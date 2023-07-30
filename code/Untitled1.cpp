@@ -3,10 +3,7 @@ using namespace std;
 #define nl << '\n'
 #define fi first
 #define se second
-#define vd vector<double>
-#define vi vector<int>
-#define vii vector<pair<int, int>>
-#define vtr vector<string>
+#define vec(type,name) vector<type>name
 #define yes cout << "YES"
 #define no cout << "NO"
 #define int long long
@@ -15,7 +12,6 @@ using namespace std;
 #define all(r) r.begin(), r.end()
 #define rall(r) r.rbegin(), r.rend()
 #define sz size()
-#define wh while
 #define fon(i, l, r) for (int i = l; i <= r; i++)
 #define fod(i, r, l) for (int i = r; i >= l; i--)
 #define fa(x, a) for (auto x : a)
@@ -27,34 +23,47 @@ const int maxN = 1e6 + 2;
 const int minN = 1e5 + 10;
 const int mod = 1e9 + 7;
 const int INF = 1e18;
-void file() {freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);}
+//void file() {freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);}
 /*
 var a = document.querySelectorAll(".MJX_Assistive_MathML")
 a.forEach(s=> s.remove())
 */
 
+// int kCn(int k, int n)
+// {
+//     int result=1;
+//     for (int i=n, j=1; j<=k; i--, j++) 
+//         result=result*i/j;
+//     return result;
+// }
+// int bin_pow(int a,int b,int mod)
+// {
+//     if(b==0)return 1;
+//     int tmp=bin_pow(a,b/2,mod);
+//     if((b&1)==false){
+//         return (tmp*tmp)%mod;
+//     }
+//     return (a*(tmp*tmp)%mod)%mod;
+// }
 void solve()
 {
     string s; cin>>s;
-    int mx=0,cnt=1;
-    s+='?';
-    for(int i=1;i<s.sz;i++)
+    map<char,int>mp;
+    int ans=0;
+    for(int i=0;i<s.sz;i++)
     {
-        if(s[i]==s[i-1]) cnt++;
-        else 
-        {
-            mx=max(mx,cnt);
-            cnt=1;
-        }
+        mp[s[i]]++;
     }
-    mx = max (mx, cnt);
-    cout<<mx;
+    if(mp.sz==1) cout<<s.sz-1 nl;
+    else if(mp.sz==s.sz) cout<<0 nl;
+    else cout<<s.sz-mp.sz nl;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //cin >> u;
+    //
+    cin >> u;
     while (u--)
     {
         solve();
