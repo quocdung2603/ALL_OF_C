@@ -29,13 +29,13 @@ var a = document.querySelectorAll(".MJX_Assistive_MathML")
 a.forEach(s=> s.remove())
 */
 
-int kCn(int k, int n)
-{
-    int result=1;
-    for (int i=n, j=1; j<=k; i--, j++) 
-        result=result*i/j;
-    return result;
-}
+// int kCn(int k, int n)
+// {
+//     int result=1;
+//     for (int i=n, j=1; j<=k; i--, j++) 
+//         result=result*i/j;
+//     return result;
+// }
 // int bin_pow(int a,int b,int mod)
 // {
 //     if(b==0)return 1;
@@ -48,19 +48,51 @@ int kCn(int k, int n)
 void solve()
 {
     int n,m; cin>>n>>m;
-    if(n%2==0 && m%2==0)
+    vector<int> ok(101);
+    vector<pair<int,int>> a(n);
+    //map<pair<int,int>,int>mp;
+    for(int i=0;i<n;i++)
     {
-        if(n==2 && m==2) cout<<2;
+        // int x,y; cin>>x>>y;
+        // if(mp[{x,y}]==0) a.pb({x,y});
+        // mp[{x,y}]++;
+        cin>>a[i].fi >>a[i].se;
+        
+    }
+    sort(all(a));
+    for(int i=0;i<n;i++)
+    {
+        // cout<<a[i].fi<<" "<<a[i].se nl;
+        if(i==0) 
+        {
+            for(int j=a[i].fi;j<=a[i].se;j++) 
+                ok[j]=1;
+        }
         else 
         {
-            cout<<kCn(2,(m*n)/2);
+            if(ok[a[i].fi]==1)
+            {
+                for(int j=a[i].fi;j<=a[i].se;j++)
+                {
+                    if(ok[j]==0) 
+                        ok[j]=1;
+                }
+            }
+        }
+        // for(int j=0;j<=m;j++) cout<<ok[j]<<" ";
+        // cout nl;
+    }
+    //fa(x,a) cout<<x.fi<<" "<<x.se nl;
+    for(int i=0;i<=m;i++)
+    {
+        //cout<<ok[i]<<" ";
+        if(ok[i]==0) 
+        {
+            no nl;
+            return;
         }
     }
-    else if(n%2==0 || m%2==0)
-    {
-        cout<<kCn(2,(m*n)/2);
-    }
-    else cout<<0;
+    yes nl;
 }
 signed main()
 {

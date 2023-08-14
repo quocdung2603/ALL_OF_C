@@ -3,7 +3,8 @@ using namespace std;
 #define nl << '\n'
 #define fi first
 #define se second
-#define vec(type,name) vector<type>name
+#define vi vector<int>
+#define vec(type,name, sl) vector<type>name(sl)
 #define yes cout << "YES"
 #define no cout << "NO"
 #define int long long
@@ -29,13 +30,13 @@ var a = document.querySelectorAll(".MJX_Assistive_MathML")
 a.forEach(s=> s.remove())
 */
 
-int kCn(int k, int n)
-{
-    int result=1;
-    for (int i=n, j=1; j<=k; i--, j++) 
-        result=result*i/j;
-    return result;
-}
+// int kCn(int k, int n)
+// {
+//     int result=1;
+//     for (int i=n, j=1; j<=k; i--, j++) 
+//         result=result*i/j;
+//     return result;
+// }
 // int bin_pow(int a,int b,int mod)
 // {
 //     if(b==0)return 1;
@@ -47,20 +48,28 @@ int kCn(int k, int n)
 // }
 void solve()
 {
-    int n,m; cin>>n>>m;
-    if(n%2==0 && m%2==0)
-    {
-        if(n==2 && m==2) cout<<2;
-        else 
-        {
-            cout<<kCn(2,(m*n)/2);
-        }
+    int n,k; cin>>n>>k;                     
+    vector<pair<int,int>> a(n),b(n);
+    for(int i=0;i<n;i++){
+        cin>>a[i].fi>>a[i].se;
+        b[i].fi = a[i].se;
+        b[i].se = a[i].fi;
     }
-    else if(n%2==0 || m%2==0)
+    sort(rall(a));
+    sort(rall(b));
+    int s1=0,s2=0,s3=0,s4=0;
+    s1+=(a[0].fi+(k+1)/2) * (a[0].se + k/2);
+    s2+=(a[0].fi+k/2) * (a[0].se + (k+1)/2);
+    s3+=(b[0].fi+(k+1)/2) * (b[0].se + k/2);
+    s4+=(b[0].fi+k/2) * (b[0].se + (k+1/2));
+    for(int i=1;i<n;i++)
     {
-        cout<<kCn(2,(m*n)/2);
+        s1+=(a[i].fi*a[i].se);
+        s2+=(a[i].fi*a[i].se);
+        s3+=(b[i].fi*b[i].se);
+        s4+=(b[i].fi*b[i].se);
     }
-    else cout<<0;
+    cout<<max(s1,max(s2,max(s3,s4)));
 }
 signed main()
 {

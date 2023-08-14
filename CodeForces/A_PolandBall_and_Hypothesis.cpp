@@ -3,7 +3,8 @@ using namespace std;
 #define nl << '\n'
 #define fi first
 #define se second
-#define vec(type,name) vector<type>name
+#define vi vector<int>
+#define vec(type,name, sl) vector<type>name(sl)
 #define yes cout << "YES"
 #define no cout << "NO"
 #define int long long
@@ -29,13 +30,13 @@ var a = document.querySelectorAll(".MJX_Assistive_MathML")
 a.forEach(s=> s.remove())
 */
 
-int kCn(int k, int n)
-{
-    int result=1;
-    for (int i=n, j=1; j<=k; i--, j++) 
-        result=result*i/j;
-    return result;
-}
+// int kCn(int k, int n)
+// {
+//     int result=1;
+//     for (int i=n, j=1; j<=k; i--, j++) 
+//         result=result*i/j;
+//     return result;
+// }
 // int bin_pow(int a,int b,int mod)
 // {
 //     if(b==0)return 1;
@@ -45,22 +46,31 @@ int kCn(int k, int n)
 //     }
 //     return (a*(tmp*tmp)%mod)%mod;
 // }
-void solve()
+int isPrime(int n) // check số nguyên tố thứ 10e6
 {
-    int n,m; cin>>n>>m;
-    if(n%2==0 && m%2==0)
-    {
-        if(n==2 && m==2) cout<<2;
-        else 
+    if(n<2) return 0;
+    if(n==2 || n==3) return 1;
+    if(n%2==0 || n%3==0) return 0;
+    for(int i=5;i<=sqrt(n);i+=6){
+        if(n%i==0 || n%(i+2)==0)
         {
-            cout<<kCn(2,(m*n)/2);
+            return 0;
         }
     }
-    else if(n%2==0 || m%2==0)
+    return 1;
+}
+void solve()
+{
+    int n; cin>>n;
+    for(int i=1;i<=1000;i++)
     {
-        cout<<kCn(2,(m*n)/2);
+        int k = n*i+1;
+        if(isPrime(k)==0)
+        {
+            cout<<i;
+            return;
+        }
     }
-    else cout<<0;
 }
 signed main()
 {

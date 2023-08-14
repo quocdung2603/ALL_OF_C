@@ -47,44 +47,93 @@ a.forEach(s=> s.remove())
 //     return (a*(tmp*tmp)%mod)%mod;
 // }
 void solve()
-{
-    int n; cin>>n;
-    int ans=INF;
-    if(n%2==0)
+{   
+    string s,s1; cin>>s;
+    s1=s;
+    int k=-1;
+    for(int i=0;i<s.sz;i++)
     {
-        for(int i=2;i<=n;i+=2)
+        if((s[i]-'0')>=5)
         {
-            if(n%i==0)
-            {
-                if(n%(i+2)==0) ans=min(ans,abs(n/i-n/(i+2)));
-                else if(n%(i+1)==0) ans=min(ans,abs(n/i-n/(i+1)));
-            }
+            k=i;
+            break;
         }
+    }
+    if(k==0) 
+    {
+        cout<<10;
+        for(int i=0;i<s.sz-1;i++) cout<<0;
+        cout nl;
+    }
+    else if(k==-1)
+    {
+        cout<<s nl;
     }
     else 
     {
-        for(int i=1;i<=n;i+=2)
+        int tmp;
+        while(true)
         {
-            if(n%i==0)
+            if(k==0) break;
+            tmp = (s[k-1]-'0')+1;
+            if(tmp>=5)
             {
-                if(n%i==0)
-            {
-                if(n%(i+2)==0) ans=min(ans,abs(n/i-n/(i+2)));
-                else if(n%(i+1)==0) ans=min(ans,abs(n/i-n/(i+1)));
+                k--;
             }
-            }
+            else break;
+        }
+        if(k==0) 
+        {
+            int z = (s[0]-'0')+1;
+            cout<<z;
+            for(int i=0;i<s.sz-1;i++) cout<<0;
+            cout nl;
+        }
+        else 
+        {
+            for(int i=0;i<k-1;i++) cout<<s[i];
+            cout<<tmp;
+            for(int i=k;i<s.sz;i++) cout<<0;
+            cout nl;
         }
     }
-    cout<<ans;
+}
+
+void solve1()
+{
+    string s; cin>>s;
+    s='0'+s;
+    reverse(all(s));
+    int tmp=0;
+    for(int i=0;i<s.sz;i++)
+    {
+        if(s[i]>='5')
+        {
+            s[i+1]++;
+            for(int j=i;j>=tmp;j--) s[j]='0';
+            tmp=i;
+        }
+    }
+    reverse(all(s));
+    if(s[0]!='0')
+    {
+        cout<<s nl;
+    }
+    else
+    {
+        for(int i=1;i<s.sz;i++) cout<<s[i];
+        cout nl;
+    }
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //cin >> u;
+    //
+    cin >> u;
     while (u--)
     {
-        solve();
+        solve1();
     }
     return 0;
 }

@@ -29,13 +29,13 @@ var a = document.querySelectorAll(".MJX_Assistive_MathML")
 a.forEach(s=> s.remove())
 */
 
-int kCn(int k, int n)
-{
-    int result=1;
-    for (int i=n, j=1; j<=k; i--, j++) 
-        result=result*i/j;
-    return result;
-}
+// int kCn(int k, int n)
+// {
+//     int result=1;
+//     for (int i=n, j=1; j<=k; i--, j++) 
+//         result=result*i/j;
+//     return result;
+// }
 // int bin_pow(int a,int b,int mod)
 // {
 //     if(b==0)return 1;
@@ -47,26 +47,29 @@ int kCn(int k, int n)
 // }
 void solve()
 {
-    int n,m; cin>>n>>m;
-    if(n%2==0 && m%2==0)
+    int n; cin>>n;
+    vector<int> a(n);
+    map<int,int> mp;
+    int s=0;
+    for(int i=0;i<n;i++)
     {
-        if(n==2 && m==2) cout<<2;
-        else 
-        {
-            cout<<kCn(2,(m*n)/2);
-        }
+        cin>>a[i];
+        s+=a[i];
+        mp[a[i]]++;
     }
-    else if(n%2==0 || m%2==0)
+    if((int)mp.sz == n && n!=1) yes nl;
+    else 
     {
-        cout<<kCn(2,(m*n)/2);
+        if(s-n>=mp[1] && n!=1) yes nl;
+        else no nl;
     }
-    else cout<<0;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //cin >> u;
+    //
+    cin >> u;
     while (u--)
     {
         solve();

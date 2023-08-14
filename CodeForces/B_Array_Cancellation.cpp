@@ -49,39 +49,55 @@ a.forEach(s=> s.remove())
 void solve()
 {
     int n; cin>>n;
-    int ans=INF;
-    if(n%2==0)
+    vi a(n);
+    for(int i=0;i<n;i++) cin>>a[i];
+    for(int i=0;i<n;i++)
     {
-        for(int i=2;i<=n;i+=2)
+        if(a[i]>0)
         {
-            if(n%i==0)
+            for(int j=i+1;j<n;j++)
             {
-                if(n%(i+2)==0) ans=min(ans,abs(n/i-n/(i+2)));
-                else if(n%(i+1)==0) ans=min(ans,abs(n/i-n/(i+1)));
+                if(a[j]==0) continue;
+                else if(a[j]>0)
+                {
+                    a[j]+=a[i];
+                    a[i]=0;
+                    break;
+                }
+                else if(a[j]<0)
+                {
+                    if(a[i] < abs(a[j]))
+                    {
+                        a[j]+=a[i];
+                        a[i]=0;
+                    }
+                    else if(a[i] > abs(a[j]))
+                    {
+                        a[i]+=a[j];
+                        a[j]=0;
+                    }
+                    else 
+                    {
+                        a[i]=a[j]=0;
+                        break;
+                    }
+                }
             }
         }
     }
-    else 
+    int s=0;
+    for(int i=0;i<n;i++) 
     {
-        for(int i=1;i<=n;i+=2)
-        {
-            if(n%i==0)
-            {
-                if(n%i==0)
-            {
-                if(n%(i+2)==0) ans=min(ans,abs(n/i-n/(i+2)));
-                else if(n%(i+1)==0) ans=min(ans,abs(n/i-n/(i+1)));
-            }
-            }
-        }
+        if(a[i]<0) s+=abs(a[i]);
     }
-    cout<<ans;
+    cout<<s nl;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //cin >> u;
+    //
+    cin >> u;
     while (u--)
     {
         solve();
