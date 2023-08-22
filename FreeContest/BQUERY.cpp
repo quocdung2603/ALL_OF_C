@@ -48,23 +48,53 @@ a.forEach(s=> s.remove())
 // }
 void solve()
 {
-	for(int i=1;i<=10000;i++) 
-	{
-		if(i<=5000)
-		{
-			cout<<10000-i<<" ";
-		}
-		else cout<<i<<" ";
-	}
+    int n,m,q; cin>>n>>m>>q;
+    vector<vector<int>> a(n,vector<int>(m,0));
+    while(q--)
+    {
+        int op; cin>>op;
+        if(op==1)   
+        {
+            int r,x; cin>>r>>x;
+            r--;
+            for(int i=0;i<m;i++)
+            {
+                a[r][i]+=x;
+            }
+        }
+        else if(op==2)
+        {
+            int c,x; cin>>c>>x;
+            c--;
+            for(int i=0;i<n;i++)
+            {
+                a[i][c]+=x;
+            }
+        }
+        else if(op==3)
+        {
+            int x1,y1,x2,y2; cin>>x1>>y1>>x2>>y2;
+            x1--;x2--;y1--;y2--;
+            int mx=-INF;
+            for(int i=x1;i<=x2;i++)
+            {
+                for(int j=y1;j<=y2;j++)
+                {
+                    mx=max(mx,a[i][j]);
+                }
+            }
+            cout<<mx nl;
+        }
+    }
 }
 signed main()
 {
-	fast_in_out();
-	int u = 1;
-	//cin >> u;
-	while (u--)
-	{
-		solve();
-	}
-	return 0;
+    fast_in_out();
+    int u = 1;
+    //cin >> u;
+    while (u--)
+    {
+        solve();
+    }
+    return 0;
 }

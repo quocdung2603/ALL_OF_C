@@ -48,23 +48,39 @@ a.forEach(s=> s.remove())
 // }
 void solve()
 {
-	for(int i=1;i<=10000;i++) 
-	{
-		if(i<=5000)
-		{
-			cout<<10000-i<<" ";
-		}
-		else cout<<i<<" ";
-	}
+    int n,k,ne=0; cin>>n>>k;
+    vi a(n); 
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+        if(a[i]<0) ne++;
+    }
+    sort(all(a));
+    int s=0;
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]<0 && k>0)   
+        {
+            a[i]*=-1;
+            k--;
+        }
+    }
+    sort(all(a));
+    if(k>0 && k%2!=0) a[0]*=-1;
+    for(int i=0;i<n;i++)
+    {
+        s+=a[i];
+    }
+    cout<<s;
 }
 signed main()
 {
-	fast_in_out();
-	int u = 1;
-	//cin >> u;
-	while (u--)
-	{
-		solve();
-	}
-	return 0;
+    fast_in_out();
+    int u = 1;
+    //cin >> u;
+    while (u--)
+    {
+        solve();
+    }
+    return 0;
 }

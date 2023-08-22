@@ -48,23 +48,28 @@ a.forEach(s=> s.remove())
 // }
 void solve()
 {
-	for(int i=1;i<=10000;i++) 
-	{
-		if(i<=5000)
-		{
-			cout<<10000-i<<" ";
-		}
-		else cout<<i<<" ";
-	}
+    int a,b,c; cin>>a>>b>>c;
+    if(a==b)
+    {
+        if(c%2==0) cout<<"Second" nl;
+        else cout<<"First" nl;
+    }
+    else 
+    {
+        if(c%2!=0) a++;
+        if(a<=b) cout<<"Second" nl;
+        else cout<<"First" nl;  
+    }
 }
 signed main()
 {
-	fast_in_out();
-	int u = 1;
-	//cin >> u;
-	while (u--)
-	{
-		solve();
-	}
-	return 0;
+    fast_in_out();
+    int u = 1;
+    //
+    cin >> u;
+    while (u--)
+    {
+        solve();
+    }
+    return 0;
 }

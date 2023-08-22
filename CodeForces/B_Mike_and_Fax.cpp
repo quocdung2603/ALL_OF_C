@@ -48,23 +48,45 @@ a.forEach(s=> s.remove())
 // }
 void solve()
 {
-	for(int i=1;i<=10000;i++) 
-	{
-		if(i<=5000)
-		{
-			cout<<10000-i<<" ";
-		}
-		else cout<<i<<" ";
-	}
+    string s; cin>>s;
+    int k,sl=0; cin>>k;
+    if(s.sz%k==0) sl=(int)s.sz/k;
+    else 
+    {
+        no;
+        return;
+    }
+    int z=0;
+    vector<string>a;
+    for(int i=0;i<k;i++)
+    {
+        string tmp="";
+        int j=z;
+        for(j=z;j<sl+z;j++)
+        {
+            tmp+=s[j];
+        }
+        z=j;
+        string tmp1=tmp;
+        reverse(all(tmp1));
+        if(tmp1!=tmp)
+        {
+            no;
+            return;
+        }
+        // a.pb(tmp1);
+    }
+    // fa(x,a) cout<<x<<" ";
+    yes;
 }
 signed main()
 {
-	fast_in_out();
-	int u = 1;
-	//cin >> u;
-	while (u--)
-	{
-		solve();
-	}
-	return 0;
+    fast_in_out();
+    int u = 1;
+    //cin >> u;
+    while (u--)
+    {
+        solve();
+    }
+    return 0;
 }

@@ -48,23 +48,27 @@ a.forEach(s=> s.remove())
 // }
 void solve()
 {
-	for(int i=1;i<=10000;i++) 
-	{
-		if(i<=5000)
-		{
-			cout<<10000-i<<" ";
-		}
-		else cout<<i<<" ";
-	}
+    int n; cin>>n;
+    vector<pair<char,int>> query(n);
+    for(int i=0;i<n;i++)
+    {
+        cin>>query[i].fi>>query[i].se;
+    }
+    // for(int i=0;i<n;i++)
+    // {
+    //     if(query[i].fi+1)
+    // }
+    vi a;
+    map<int,int> mp;
 }
 signed main()
 {
-	fast_in_out();
-	int u = 1;
-	//cin >> u;
-	while (u--)
-	{
-		solve();
-	}
-	return 0;
+    fast_in_out();
+    int u = 1;
+    //cin >> u;
+    while (u--)
+    {
+        solve();
+    }
+    return 0;
 }
