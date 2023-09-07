@@ -24,12 +24,45 @@ const int maxN = 1e6 + 2;
 const int minN = 1e5 + 10;
 const int mod = 1e9 + 7;
 const int INF = 1e18;
-//void file() {freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);}
 /*
 var a = document.querySelectorAll(".MJX_Assistive_MathML")
 a.forEach(s=> s.remove())
 */
 
+int dx[4]={-1,0,0,1};
+int dy[4]={0,-1,1,0};
+
+//void file() {freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);}
+// void sieve(int N)
+// {
+//     bool isPrime[N+1];
+//     for(int i=0; i<=N; i++)
+//             isPrime[i] = true;
+//     isPrime[0]=false;
+//     isPrime[1]=false;
+//     for(int i=2; i*i<=N; i++)
+//         {
+//         if(isPrime[i]==true)
+//             {
+//                 for(int j=i*i; j<=N; j+=i)
+//                     isPrime[j]=false;
+//         }
+//     }
+// }
+// vector<int> factorize(int n)
+// {
+//     vector <int> res;
+//     for (int i=2; i*i<=n; i++)
+//         {
+//         while (n%i==0)
+//             {
+//             res.push_back(i);
+//             n/=i;
+//         }
+//     }
+//     if (n!=1) res.push_back(n);
+//     return res;
+// }
 // int kCn(int k, int n)
 // {
 //     int result=1;
@@ -48,38 +81,22 @@ a.forEach(s=> s.remove())
 // }
 void solve()
 {
-    string s,tmp=""; cin>>s;
-    if(s=="()")
+    int n; cin>>n;
+    vector<pair<int,int>> a(n);
+    for(int i=0;i<n;i++)
     {
-        no nl;
-        return;
+        cin>>a[i].fi;
+        a[i].se=i;
     }
-    int check=1;
-    for(int i=0;i<s.sz*2;i++)
+    sort(all(a));
+    int ans=0;
+    for(int i=0;i<n-1;i++)
     {
-        if(tmp.sz != s.sz) i%2==0 ? tmp+='(' : tmp+=')';
-        else
-        {
-            if(tmp==s) 
-            {
-                check=0;
-                break;
-            }
-            tmp.erase(0,1);
-            i--;
-        }
+        // cout<<a[i].fi<<" "<<a[i].se nl;
+        if(a[i].se > a[i+1].se) ans++;
     }
-    yes nl;
-    if(check==1)
-    {
-        for(int i=0;i<s.sz;i++) cout<<"()";
-        cout nl;
-    }
-    else
-    {
-        for(int i=0;i<s.sz*2;i++) i<s.sz ? cout<<"(" : cout<<")";
-        cout nl;
-    }
+    cout<<ans;
+    cout nl;
 }
 signed main()
 {

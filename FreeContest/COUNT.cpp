@@ -48,45 +48,30 @@ a.forEach(s=> s.remove())
 // }
 void solve()
 {
-    string s,tmp=""; cin>>s;
-    if(s=="()")
+    int n,p,q,r; cin>>n>>p>>q>>r;
+    int a=__gcd(p,q);
+    int b=__gcd(p,r);
+    int c=__gcd(q,r);
+    map<int,int> mp;
+    if(a>=min(p,q))
     {
-        no nl;
-        return;
+        for(int i=a;i<=n;i+=a) mp[i]++;
     }
-    int check=1;
-    for(int i=0;i<s.sz*2;i++)
+    if(b>=min(p,r))
     {
-        if(tmp.sz != s.sz) i%2==0 ? tmp+='(' : tmp+=')';
-        else
-        {
-            if(tmp==s) 
-            {
-                check=0;
-                break;
-            }
-            tmp.erase(0,1);
-            i--;
-        }
+        for(int i=b;i<=n;i+=b) mp[i]++;
     }
-    yes nl;
-    if(check==1)
+    if(c>=min(q,r))
     {
-        for(int i=0;i<s.sz;i++) cout<<"()";
-        cout nl;
+        for(int i=c;i<=n;i+=c) mp[i]++;
     }
-    else
-    {
-        for(int i=0;i<s.sz*2;i++) i<s.sz ? cout<<"(" : cout<<")";
-        cout nl;
-    }
+    cout<<mp.sz;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //
-    cin >> u;
+    //cin >> u;
     while (u--)
     {
         solve();

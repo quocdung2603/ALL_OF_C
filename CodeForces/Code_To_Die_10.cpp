@@ -79,69 +79,53 @@ int dy[4]={0,-1,1,0};
 //     }
 //     return (a*(tmp*tmp)%mod)%mod;
 // }
-
-int n,m,s,t;
-vector<int> a[1001];
-vector<bool> visited(1001);
-vector<int> parent(1001);
-
-void dfs(int u) 
+void solveA()
 {
-    visited[u]=true;
-    for(auto &v: a[u])
+    int n,k,mx=-INF; cin>>n>>k;
+    vi a(n+1);
+    for(int i=1;i<=n;i++) cin>>a[i];
+    for(int i=1;i<=k;i++)
     {
-        if(!visited[v])
+        vi b=a;
+        int e=0,s=0;
+        for(int j=i;j<=n;j+=k)
         {
-            parent[v]=u;
-            dfs(v);
+            b[j]=0;
         }
+        for(int j=1;j<=n;j++)
+        {
+            b[j]==1 ? e++ : (b[j]==-1 ? s++ : s=s);
+        }
+        if(abs(e-s) > mx) mx=abs(e-s);
     }
+    cout<<mx;
 }
-
-void bfs(int u)
+void solveB()
 {
-    queue<int> q;
-    q.push(u);
-    visited[u]=true;
-    while(!q.empty())
+    int n; cin>>n;
+    vi a(n);
+    int mx=-INF;
+    for(int i=0;i<n;i++)
     {
-        int v = q.front();
-        q.pop();
-        for(auto &x: a[v])
+        cin>>a[i];
+        mx=max(mx,a[i]);
+    }
+    int ans=0,cnt=0;
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]==mx) cnt++;
+        else 
         {
-            if(!visited[x])
-            {
-                q.push(x);
-                parent[x]=v;
-                visited[x]=true;
-            }
+            ans=max(ans,cnt);
+            cnt=0;
         }
     }
+    ans=max(ans,cnt);
+    cout<<ans;
 }
-void solve()
+void solveC()
 {
-    cin>>n>>m;
-    for(int i=0;i<m;i++)
-    {
-        int x,y; cin>>x>>y;
-        a[x].pb(y);
-        a[y].pb(x);
-    }
-    bfs(s);
-    if(!visited[t]) cout<<"no";
-    else 
-    {
-        cout<<"Yes" nl;
-        vi b;
-        while(t!=s)
-        {
-            b.pb(t);
-            t=parent[t];
-        }
-        b.pb(s);
-        reverse(all(b));
-        fa(x,b) cout<<x<<" ";
-    }
+    
 }
 signed main()
 {
@@ -150,7 +134,7 @@ signed main()
     //cin >> u;
     while (u--)
     {
-        solve();
+        solveB();
     }
     return 0;
 }

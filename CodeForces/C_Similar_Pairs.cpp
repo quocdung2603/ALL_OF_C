@@ -79,75 +79,44 @@ int dy[4]={0,-1,1,0};
 //     }
 //     return (a*(tmp*tmp)%mod)%mod;
 // }
-
-int n,m,s,t;
-vector<int> a[1001];
-vector<bool> visited(1001);
-vector<int> parent(1001);
-
-void dfs(int u) 
-{
-    visited[u]=true;
-    for(auto &v: a[u])
-    {
-        if(!visited[v])
-        {
-            parent[v]=u;
-            dfs(v);
-        }
-    }
-}
-
-void bfs(int u)
-{
-    queue<int> q;
-    q.push(u);
-    visited[u]=true;
-    while(!q.empty())
-    {
-        int v = q.front();
-        q.pop();
-        for(auto &x: a[v])
-        {
-            if(!visited[x])
-            {
-                q.push(x);
-                parent[x]=v;
-                visited[x]=true;
-            }
-        }
-    }
-}
 void solve()
 {
-    cin>>n>>m;
-    for(int i=0;i<m;i++)
+    int n; cin>>n;
+    vi e,o;
+    for(int i=0;i<n;i++)
     {
-        int x,y; cin>>x>>y;
-        a[x].pb(y);
-        a[y].pb(x);
+        int t; cin>>t;
+        if(t%2==0) e.pb(t);
+        else o.pb(t);
     }
-    bfs(s);
-    if(!visited[t]) cout<<"no";
-    else 
+    if(e.sz%2==0 && o.sz%2==0) yes nl;
+    else if(e.sz%2!=0 || o.sz%2!=0)
     {
-        cout<<"Yes" nl;
-        vi b;
-        while(t!=s)
+        for(int i=0;i<e.sz;i++)
         {
-            b.pb(t);
-            t=parent[t];
+            for(int j=0;j<o.sz;j++)
+            {
+                if(abs(e[i]-o[j])==1)
+                {
+                    e.erase(e.begin()+i);
+                    o.erase(o.begin()+j);
+                    if((e.sz%2==0 || e.sz==0) && (o.sz%2==0 || o.sz==0))
+                    {
+                        yes nl;
+                        return;
+                    }
+                }
+            }
         }
-        b.pb(s);
-        reverse(all(b));
-        fa(x,b) cout<<x<<" ";
+        no nl;
     }
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //cin >> u;
+    //
+    cin >> u;
     while (u--)
     {
         solve();

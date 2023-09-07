@@ -1,0 +1,1 @@
+{"name":"Local: topo_sort","url":"d:\\ALL_OF_C\\Algorithms\\topo_sort.cpp","tests":[{"id":1693659834200,"input":"7 7\n1 2 \n1 6\n2 3\n2 4\n3 5\n4 5\n7 6","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\ALL_OF_C\\Algorithms\\topo_sort.cpp","group":"local","local":true}

@@ -46,40 +46,77 @@ a.forEach(s=> s.remove())
 //     }
 //     return (a*(tmp*tmp)%mod)%mod;
 // }
-void solve()
+
+void solveA()
 {
-    string s,tmp=""; cin>>s;
-    if(s=="()")
+    int n,k,d; cin>>n>>k>>d;
+    vi a(n);
+    for(int i=0;i<n;i++) cin>>a[i];
+    int mn = INF;
+    for(int i=0;i<n-d+1;i++)
     {
-        no nl;
-        return;
-    }
-    int check=1;
-    for(int i=0;i<s.sz*2;i++)
-    {
-        if(tmp.sz != s.sz) i%2==0 ? tmp+='(' : tmp+=')';
-        else
+        map<int,int> mp;
+        int j=i;
+        while(j<n)
         {
-            if(tmp==s) 
+            mp[a[j]]++;
+            if(j-i+1==d)
             {
-                check=0;
-                break;
+                mn= min((int)mp.sz, mn);
+                mp.clear();
             }
-            tmp.erase(0,1);
-            i--;
+            j++;
         }
     }
-    yes nl;
-    if(check==1)
+    cout<<mn nl;
+}
+void solveB()
+{
+    int n; cin>>n;
+    vi a(n),b,c,e,f;
+    for(int i=0;i<n;i++) cin>>a[i];
+    for(int i=0;i<n/2;i++)
     {
-        for(int i=0;i<s.sz;i++) cout<<"()";
-        cout nl;
+        if(a[i]!=a[n-i-1])
+        {
+            for(int j=0;j<n;j++)
+            {   
+                if(a[j]!=a[i]) b.pb(a[j]);
+                if(a[j]!=a[n-1-i]) c.pb(a[j]);
+            }
+            break;
+        }
     }
-    else
+    e=b;
+    f=c;
+    reverse(all(e));
+    reverse(all(f));
+    if(b==e || c==f) yes nl;
+    else no nl;
+}
+void solveD()
+{
+    int n; cin>>n;
+    vector<pair<int,int>> ans;
+    for(int i=0;i<n;i++)
     {
-        for(int i=0;i<s.sz*2;i++) i<s.sz ? cout<<"(" : cout<<")";
-        cout nl;
+        int k; cin>>k;
+        int mx= -INF;
+        for(int j=0,x;j<k;j++)
+        {
+            cin>>x;
+            mx = max(mx,x-j+1);
+        }
+        ans.pb({mx,k});
     }
+    sort(all(ans));
+    int res=0,cnt=0;
+    for(int i=0;i<n;i++)
+    {
+        res=max(res,ans[i].fi-cnt);
+        cnt+=ans[i].se;
+    }
+    cout<<res nl;
 }
 signed main()
 {
@@ -89,7 +126,7 @@ signed main()
     cin >> u;
     while (u--)
     {
-        solve();
+        solveD();
     }
     return 0;
 }

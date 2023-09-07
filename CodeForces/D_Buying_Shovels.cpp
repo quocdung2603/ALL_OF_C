@@ -48,37 +48,24 @@ a.forEach(s=> s.remove())
 // }
 void solve()
 {
-    string s,tmp=""; cin>>s;
-    if(s=="()")
-    {
-        no nl;
-        return;
-    }
-    int check=1;
-    for(int i=0;i<s.sz*2;i++)
-    {
-        if(tmp.sz != s.sz) i%2==0 ? tmp+='(' : tmp+=')';
-        else
-        {
-            if(tmp==s) 
-            {
-                check=0;
-                break;
-            }
-            tmp.erase(0,1);
-            i--;
-        }
-    }
-    yes nl;
-    if(check==1)
-    {
-        for(int i=0;i<s.sz;i++) cout<<"()";
-        cout nl;
-    }
+    int n,k; cin>>n>>k;
+    if(n<=k) cout<<1 nl;
     else
     {
-        for(int i=0;i<s.sz*2;i++) i<s.sz ? cout<<"(" : cout<<")";
-        cout nl;
+        if(k==1) cout<<n nl;
+        else 
+        {
+            int ans=n;
+            for(int i=1;i<=sqrt(n);i++)
+            {
+                if(n%i==0)
+                {
+                    if(i<=k) ans=min(ans,n/i);
+                    if(n/i<=k) ans=min(ans,i);
+                }
+            }
+            cout<<ans nl;
+        }
     }
 }
 signed main()

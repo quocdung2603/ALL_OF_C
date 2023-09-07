@@ -24,12 +24,45 @@ const int maxN = 1e6 + 2;
 const int minN = 1e5 + 10;
 const int mod = 1e9 + 7;
 const int INF = 1e18;
-//void file() {freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);}
 /*
 var a = document.querySelectorAll(".MJX_Assistive_MathML")
 a.forEach(s=> s.remove())
 */
 
+int dx[4]={-1,0,0,1};
+int dy[4]={0,-1,1,0};
+
+//void file() {freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);}
+// void sieve(int N)
+// {
+//     bool isPrime[N+1];
+//     for(int i=0; i<=N; i++)
+//             isPrime[i] = true;
+//     isPrime[0]=false;
+//     isPrime[1]=false;
+//     for(int i=2; i*i<=N; i++)
+//         {
+//         if(isPrime[i]==true)
+//             {
+//                 for(int j=i*i; j<=N; j+=i)
+//                     isPrime[j]=false;
+//         }
+//     }
+// }
+// vector<int> factorize(int n)
+// {
+//     vector <int> res;
+//     for (int i=2; i*i<=n; i++)
+//         {
+//         while (n%i==0)
+//             {
+//             res.push_back(i);
+//             n/=i;
+//         }
+//     }
+//     if (n!=1) res.push_back(n);
+//     return res;
+// }
 // int kCn(int k, int n)
 // {
 //     int result=1;
@@ -48,37 +81,27 @@ a.forEach(s=> s.remove())
 // }
 void solve()
 {
-    string s,tmp=""; cin>>s;
-    if(s=="()")
-    {
-        no nl;
-        return;
-    }
-    int check=1;
-    for(int i=0;i<s.sz*2;i++)
-    {
-        if(tmp.sz != s.sz) i%2==0 ? tmp+='(' : tmp+=')';
-        else
-        {
-            if(tmp==s) 
-            {
-                check=0;
-                break;
-            }
-            tmp.erase(0,1);
-            i--;
-        }
-    }
-    yes nl;
-    if(check==1)
-    {
-        for(int i=0;i<s.sz;i++) cout<<"()";
-        cout nl;
-    }
+    int a,b; cin>>a>>b;
+    if(a<b) cout<<1 nl;
+    else if(a==b) cout<<2 nl;
     else
     {
-        for(int i=0;i<s.sz*2;i++) i<s.sz ? cout<<"(" : cout<<")";
-        cout nl;
+        int mn=INF,tmp,cnt;
+        for(int i=0;i<100;i++)
+        {   
+            tmp=a,cnt=0;
+            if(b>1)
+            {
+                while(tmp)    
+                {
+                    tmp/=b;
+                    cnt++;
+                }
+                mn=min(mn,cnt+i);
+            }
+            b++;
+        }
+        cout<<mn nl;
     }
 }
 signed main()

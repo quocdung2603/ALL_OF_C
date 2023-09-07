@@ -48,38 +48,22 @@ a.forEach(s=> s.remove())
 // }
 void solve()
 {
-    string s,tmp=""; cin>>s;
-    if(s=="()")
+    int n; cin>>n;
+    vi a(n),b;
+    for(int i=0;i<n;i++) cin>>a[i];
+    b.pb(a[0]);
+    for(int i=1;i<n;i++)
     {
-        no nl;
-        return;
-    }
-    int check=1;
-    for(int i=0;i<s.sz*2;i++)
-    {
-        if(tmp.sz != s.sz) i%2==0 ? tmp+='(' : tmp+=')';
-        else
+        if(a[i]<a[i-1])
         {
-            if(tmp==s) 
-            {
-                check=0;
-                break;
-            }
-            tmp.erase(0,1);
-            i--;
+            b.pb(1);
+            b.pb(a[i]);
         }
+        else b.pb(a[i]);
     }
-    yes nl;
-    if(check==1)
-    {
-        for(int i=0;i<s.sz;i++) cout<<"()";
-        cout nl;
-    }
-    else
-    {
-        for(int i=0;i<s.sz*2;i++) i<s.sz ? cout<<"(" : cout<<")";
-        cout nl;
-    }
+    cout<< b.sz nl;
+    fa(x,b) cout<<x<<" ";
+    cout nl;
 }
 signed main()
 {
