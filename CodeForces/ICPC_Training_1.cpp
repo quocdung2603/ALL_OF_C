@@ -79,9 +79,67 @@ int dy[4]={0,-1,1,0};
 //     }
 //     return (a*(tmp*tmp)%mod)%mod;
 // }
-void solve()
+void solveL()
 {
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+    int n,t; cin>>n>>t;
+    int mx=-1;
+    for(int i=0,x=0;i<n;i++)
+    {
+        cin>>x;
+        mx=max(x,mx);
+    }
+    if(t>=mx) cout<<2;
+    else 
+    {
+        if(mx%t==0) cout<<mx/t;
+        else cout<<mx/t+1;
+    }
+}
+
+void solveA()
+{
+    int n,m; cin>>n>>m;
+    vector<pair<int,string>> rank;
+    map<string,int> mp;
+    int id=1;
+    for(int i=0;i<n;i++)
+    {
+        string s; cin>>s;
+        if(mp[s]==0)
+        {
+            rank.pb({id,s});
+            mp[s]++;
+        }
+    }
+    //mp.clear();
+    id=1;
+    for(int i=0;i<m;i++)
+    {
+        string s; cin>>s;
+        if(mp[s]==0)
+        {
+            rank.pb({id,s});
+            mp[s]++;
+            id++;
+        }
+        else 
+        {
+            for(int j=0;j<rank.sz;j++)
+            {
+                if(s == rank[j].se)
+                {
+                    if(id < rank[j].fi) 
+                    {
+                        rank[j].fi=id;
+                        i++;
+                        break;
+                    }
+
+                }
+            }
+        }
+    }
+    
 }
 signed main()
 {
@@ -90,7 +148,7 @@ signed main()
     //cin >> u;
     while (u--)
     {
-        solve();
+        solveA();
     }
     return 0;
 }

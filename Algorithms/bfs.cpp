@@ -130,6 +130,7 @@ bool bfs(int u)
     }
     return false;
 }
+
 void solve()
 {
     cin>>n>>m;

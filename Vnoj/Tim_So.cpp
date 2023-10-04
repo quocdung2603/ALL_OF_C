@@ -79,15 +79,63 @@ int dy[4]={0,-1,1,0};
 //     }
 //     return (a*(tmp*tmp)%mod)%mod;
 // }
+
+map<int,int> mp;
+bool kkk(int x) {
+    while (x > 0) {
+        int digit = x % 10;
+        mp[digit]++;
+        if (mp[digit] > 2) {
+            return false; // More than 2 occurrences of a digit
+        }
+        x /= 10;
+    }
+    return true;
+}
+int snt(int n)
+{
+    if(n<2) return 0;
+    if(n==2 || n==3) return 1;
+    if(n%2==0 || n%3==0) return 0;
+    for(int i=5;i<=sqrt(n);i+=6)
+    {
+        if(n%i==0 || n%(i+2)==0) return 0;
+    }
+    return 1;
+}
 void solve()
 {
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+    int n; cin>>n;
+    if(n<10)
+    {
+        cout<<n nl;
+        return;
+    }
+    for(int i=n;;i++)
+    {
+        if(!snt(i))
+        {
+            if(kkk(i))
+            {
+                if(kkk(i*i))    
+                {
+                    cout<<i nl;
+                    return;
+                }
+                else mp.clear();
+            }
+            else mp.clear();
+        }
+        else break;
+    }
+    cout<<-1 nl;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //cin >> u;
+    //
+    cin >> u;
     while (u--)
     {
         solve();

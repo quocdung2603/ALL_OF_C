@@ -81,13 +81,38 @@ int dy[4]={0,-1,1,0};
 // }
 void solve()
 {
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+    string s; cin>>s;
+    int l=0,r=0,ans=INF;
+    map<char,int> mp;
+    while(r<s.sz)
+    {
+        if(mp['1']==0 || mp['2']==0 || mp['3']==0)
+        {
+            mp[s[r]]++;
+            r++;
+        }
+        else
+        {
+            ans=min(ans,r-l);
+            mp[s[l]]--;
+            l++;
+        }
+    }
+    while(mp['1']>0 && mp['2']>0 && mp['3']>0)
+    {
+        ans=min(ans,r-l);
+        mp[s[l]]--;
+        l++;
+    }
+    if(ans==INF) cout<< 0 nl;
+    else cout<<ans nl;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //cin >> u;
+    //
+    cin >> u;
     while (u--)
     {
         solve();

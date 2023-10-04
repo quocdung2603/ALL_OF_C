@@ -80,14 +80,54 @@ int dy[4]={0,-1,1,0};
 //     return (a*(tmp*tmp)%mod)%mod;
 // }
 void solve()
-{
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+{   
+    int n; cin>>n;
+    vi a(n),ans,check(n+1,0);
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+        check[a[i]]=1;
+    }
+    int mx=a[0],id=1; 
+    ans.pb(a[0]);
+    for(int i=1;i<n;i++)
+    {
+        if(a[i]>mx)
+        {
+            ans.pb(a[i]);
+            check[a[i]]=1;
+            mx=a[i];
+        }
+        else 
+        {
+            bool ok=false;
+            for(int j=id;j<=mx;j++)
+            {
+                if(check[j]==0)
+                {
+                    ans.pb(j);
+                    check[j]=1; 
+                    ok=true;
+                    id=j;
+                    break;
+                }
+            }
+            if(ok==false)
+            {
+                cout<<-1 nl;
+                return;
+            }
+        }
+    }
+    for(int i=0;i<ans.sz;i++) cout<<ans[i]<<" ";
+    cout nl;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //cin >> u;
+    //
+    cin >> u;
     while (u--)
     {
         solve();

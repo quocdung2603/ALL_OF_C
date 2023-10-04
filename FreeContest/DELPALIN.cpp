@@ -79,15 +79,65 @@ int dy[4]={0,-1,1,0};
 //     }
 //     return (a*(tmp*tmp)%mod)%mod;
 // }
+bool abc(string s) {
+    string x=s;
+    reverse(all(x));
+    if(x==s) return true;
+    return false;
+}
 void solve()
 {
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+    string s; cin>>s;
+    string t=s;
+    reverse(all(t));
+    if(t==s)
+    {
+        cout<<1 nl;
+    }
+    else
+    {
+        int cnt=0;
+        while(s.sz>0)
+        {
+            t="";
+            int l=0,r=0,mx=0;
+            pair<int,int>p;
+            while(r<s.sz)
+            {
+                if(abc(t))
+                {
+                    t+=s[r];
+                    r++;
+                }
+                else 
+                {
+                    if(r-l>mx)
+                    {
+                        mx=r-l;
+                        p.fi=l;
+                        p.se=r;
+                    }
+                    t.erase(0,1);
+                    l++;
+                }
+            }
+            cnt++;
+            s.erase(s.begin()+p.fi, s.begin()+p.se+1);
+        }
+        cout<<cnt nl;
+    }
+}
+void solve1()
+{
+    string s; cin>>s;
+    cout<<s.sz nl;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //cin >> u;
+    //
+    cin >> u;
     while (u--)
     {
         solve();

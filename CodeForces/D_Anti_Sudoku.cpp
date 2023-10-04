@@ -81,13 +81,37 @@ int dy[4]={0,-1,1,0};
 // }
 void solve()
 {
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+    char a[9][9];
+    for(int i=0;i<9;i++)
+    {
+        for(int j=0;j<9;j++)
+        {
+            cin>>a[i][j];
+        }
+    }
+    int cnt=0;
+    for(int i=0;i<9;i++)
+    {
+        if(cnt>8) cnt-=8;
+        if(a[i][cnt]=='1') a[i][cnt]='2';
+        else a[i][cnt]='1';
+        cnt+=3;
+    }
+    for(int i=0;i<9;i++)
+    {
+        for(int j=0;j<9;j++)
+        {
+            cout<<a[i][j];
+        }
+        cout nl;
+    }
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //cin >> u;
+    //
+    cin >> u;
     while (u--)
     {
         solve();

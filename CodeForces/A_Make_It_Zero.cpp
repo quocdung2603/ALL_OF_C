@@ -79,15 +79,36 @@ int dy[4]={0,-1,1,0};
 //     }
 //     return (a*(tmp*tmp)%mod)%mod;
 // }
+
 void solve()
 {
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+    int n; cin>>n;
+    vi a(n);
+    for(int i=0;i<n;i++) cin>>a[i];
+    // int s=a[0];
+    // for(int i=1;i<n;i++) s^=a[i];
+    // cout<<s;
+    if(n%2==0) 
+    {
+        cout<<2 nl;
+        cout<<1 <<" "<<n nl;
+        cout<<1 <<" "<<n nl;
+    }
+    else 
+    {
+        cout<<4 nl;
+        cout<<1 <<" "<<2 nl;
+        cout<<1 <<" "<<2 nl;
+        cout<<2 <<" "<<n nl;
+        cout<<2 <<" "<<n nl;
+    }
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //cin >> u;
+    //
+    cin >> u;
     while (u--)
     {
         solve();

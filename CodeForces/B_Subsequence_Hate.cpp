@@ -81,13 +81,17 @@ int dy[4]={0,-1,1,0};
 // }
 void solve()
 {
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+    string s; cin>>s;
+    int cnt1=0,cnt2=0,ok1=0,ok2=0;
+    int ans=INF;
+    
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //cin >> u;
+    //
+    cin >> u;
     while (u--)
     {
         solve();

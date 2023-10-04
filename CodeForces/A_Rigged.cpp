@@ -81,13 +81,26 @@ int dy[4]={0,-1,1,0};
 // }
 void solve()
 {
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+    int n; cin>>n;
+    vector<pair<int,int>> a(n);
+    for(int i=0;i<n;i++) cin>>a[i].fi >> a[i].se;
+    pair<int,int> k = a[0];
+    for(int i=1;i<n;i++)
+    {
+        if(a[i].fi>=k.fi && a[i].se>=k.se)
+        {
+            cout<<-1 nl;
+            return;
+        }
+    }
+    cout<<k.fi nl;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //cin >> u;
+    //
+    cin >> u;
     while (u--)
     {
         solve();

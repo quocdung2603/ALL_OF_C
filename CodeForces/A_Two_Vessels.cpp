@@ -81,13 +81,29 @@ int dy[4]={0,-1,1,0};
 // }
 void solve()
 {
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+    double a,b,c; cin>>a>>b>>c;
+    if(a==b)
+    {
+        cout<<0 nl;
+        return;
+    }
+    if(a<b) swap(a,b);
+    int e =(a+b)/2;
+    int cnt=0;
+    while(a>e)
+    {
+        cnt++;
+        if(a-c >= e) a-=c;
+        else break;
+    }
+    cout<<cnt nl;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //cin >> u;
+    //
+    cin >> u;
     while (u--)
     {
         solve();

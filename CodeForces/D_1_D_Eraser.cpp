@@ -81,13 +81,25 @@ int dy[4]={0,-1,1,0};
 // }
 void solve()
 {
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+    int n,k; cin>>n>>k;
+    string s; cin>>s;
+    int cnt=0;
+    for(int i=0;i<n;i++)
+    {
+        if(s[i]=='B')  
+        {
+            cnt++;
+            i+=k-1;
+        }
+    }
+    cout<<cnt nl;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //cin >> u;
+    //
+    cin >> u;
     while (u--)
     {
         solve();

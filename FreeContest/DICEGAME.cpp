@@ -79,9 +79,31 @@ int dy[4]={0,-1,1,0};
 //     }
 //     return (a*(tmp*tmp)%mod)%mod;
 // }
+double abc (int a1,int b1,int a2, int b2)
+{
+    double avgT = (a1 + b1) / 2.0;
+    double avgS = (a2 + b2) / 2.0;
+    // double avgT = b1-a1+1;
+    // double avgS = b2-a2+1;
+    return avgT+avgS;
+}
 void solve()
 {
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+    int a1, b1, a2, b2;
+    cin >> a1 >> b1 >> a2 >> b2;
+    int c1, d1, c2, d2;
+    cin>>c1>>d1>>c2>>d2;
+
+    double avgT = abc(a1,b1,a2,b2);
+    double avgS = abc(c1,d1,c2,d2);
+
+    if (avgT > avgS) {
+        cout << "1"; 
+    } else if (avgT < avgS) {
+        cout << "2"; 
+    } else {
+        cout << "3"; 
+    }
 }
 signed main()
 {

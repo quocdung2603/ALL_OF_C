@@ -79,7 +79,7 @@ vector<int> parent(maxN); // mang chua father cua dinh dc tham
 //     return false;
 // }
 
-bool dfs(int u) //kiem tra tinh lien thong
+bool dfs(int u) //kiem tra tinh chu trình
 {
     visited[u]=true;
     for(auto &v: a[u])
@@ -199,7 +199,8 @@ void solve()
                 cycle.pb(st);
                 reverse(all(cycle));
                 fa(x,cycle) cout<<x<<" ";
-                return;
+                cout<<endl;
+                //return;
             }
         }
     }

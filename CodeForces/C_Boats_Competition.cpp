@@ -81,13 +81,44 @@ int dy[4]={0,-1,1,0};
 // }
 void solve()
 {
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+    int n; cin>>n;
+    vi a(n),b;
+    set<int>s;
+    for(int i=0;i<n;i++) cin>>a[i];
+    for(int i=0;i<n-1;i++)
+    {
+        for(int j=i+1;j<n;j++)
+        {
+            s.insert(a[i]+a[j]);
+        }
+    }
+    int mx=0;
+    for(auto x: s)
+    {
+        int cnt=0;
+        b=a;
+        for(int i=0;i<n-1;i++)
+        {
+            for(int j=i+1;j<n;j++)
+            {
+                if(b[i]+b[j]==x)
+                {
+                    cnt++;
+                    b[i]=500;
+                    b[j]=500;
+                }
+            }
+        }
+        mx=max(cnt,mx);
+    }
+    cout<<mx nl;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //cin >> u;
+    //
+    cin >> u;
     while (u--)
     {
         solve();

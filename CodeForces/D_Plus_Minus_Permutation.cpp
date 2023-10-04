@@ -81,13 +81,19 @@ int dy[4]={0,-1,1,0};
 // }
 void solve()
 {
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+    int n,x,y; cin>>n>>x>>y;
+    int a=n/x,b=n/y,p= n/(x*y/__gcd(x,y));
+    a-=p;
+    b-=p;
+    int ans = (2*n-a+1)*a/2-(1+b)*b/2;
+    cout<<ans nl;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //cin >> u;
+    //
+    cin >> u;
     while (u--)
     {
         solve();

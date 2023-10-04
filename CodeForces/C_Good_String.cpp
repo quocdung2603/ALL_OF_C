@@ -81,7 +81,25 @@ int dy[4]={0,-1,1,0};
 // }
 void solve()
 {
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+    int n; cin>>n;
+    string s; cin>>s;
+    int cnt=0;
+    for(int i=0;i<s.sz;i++)
+    {   
+        if(i%2==0 && s[i]==s[i+1])
+        {
+            cnt++;
+            s.erase(i,1);
+            i--;
+        }
+    }
+    if(s.sz%2!=0)
+    {
+        cnt++;
+        s.erase(s.sz-1,1);
+    }
+    cout<<cnt nl;
+    cout<<s;
 }
 signed main()
 {

@@ -81,13 +81,40 @@ int dy[4]={0,-1,1,0};
 // }
 void solve()
 {
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+    int n; cin>>n;
+    string s; cin>>s;
+    string x="";
+    if(s[0]=='9')
+    {
+        for(int i=s.sz-1;i>=0;i--)
+        {
+            if(s[i]=='0') s[i]='1';
+            else if(s[i]=='1') s[i]='0';
+            else 
+            {
+                s[i]=59-s[i]+48;
+                s[i-1]+=1;
+            }
+            x+=s[i];
+        }
+        reverse(all(x));
+        cout<<x nl;
+    }
+    else 
+    {
+        for(int i=0;i<s.sz;i++) 
+        {
+            cout<<9-(s[i]-'0');
+        }
+        cout nl;
+    }
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //cin >> u;
+    //
+    cin >> u;
     while (u--)
     {
         solve();

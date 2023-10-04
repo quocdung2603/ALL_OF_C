@@ -81,13 +81,23 @@ int dy[4]={0,-1,1,0};
 // }
 void solve()
 {
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+    int n,k,x; cin>>n>>k>>x;
+    if(n < k  || k-x>1) cout<<-1 nl;
+    else
+    {
+        int t = k-1;
+        int s = t*(t+1)/2;
+        if(k==x) s+=(x-1)*(n-t-1);
+        else s+=(x)*(n-t-1);
+        cout<<s nl;
+    }
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //cin >> u;
+    //
+    cin >> u;
     while (u--)
     {
         solve();

@@ -81,13 +81,31 @@ int dy[4]={0,-1,1,0};
 // }
 void solve()
 {
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+    int n; cin>>n;
+    vi a(n);
+    for(int i=0;i<n;i++) cin>>a[i];
+    for(int i=0;i<n-1;i++)
+    {
+        if(a[i]==a[i+1] || min(a[i],a[i+1]) +1 == max(a[i],a[i+1])) continue;
+        else 
+        {
+            int x=a[i],y=a[i+1];
+            if(x>y) swap(x,y);
+            if(x*2==y || x*2+1==y) continue;
+            else 
+            {
+                no nl;return;
+            }
+        }
+    }
+    yes nl;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //cin >> u;
+    //
+    cin >> u;
     while (u--)
     {
         solve();

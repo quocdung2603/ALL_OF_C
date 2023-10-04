@@ -81,7 +81,17 @@ int dy[4]={0,-1,1,0};
 // }
 void solve()
 {
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+    int n,i=0; cin>>n;
+    string x="ROYGBIV",s="GBIV";
+    n-=7;
+    while(n>0)
+    {
+        x+=s[i];
+        i++;
+        n--;
+        if(i==4) i=0;
+    }
+    cout<<x;
 }
 signed main()
 {

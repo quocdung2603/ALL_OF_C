@@ -1,0 +1,1 @@
+{"name":"Local: Day_Boi","url":"d:\\ALL_OF_C\\Vnoj\\Day_Boi.cpp","tests":[{"id":1696165536906,"input":"3 18","output":""},{"id":1696165549698,"input":"3 1000000","output":""},{"id":1696166644873,"input":"5 20","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\ALL_OF_C\\Vnoj\\Day_Boi.cpp","group":"local","local":true}

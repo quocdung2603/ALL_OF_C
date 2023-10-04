@@ -81,7 +81,32 @@ int dy[4]={0,-1,1,0};
 // }
 void solve()
 {
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+    int l,r; cin>>l>>r; 
+    int cnt=0;
+    int x=l;
+    vi ans;
+    ans.pb(l);
+    while(x<=r)
+    {
+        if(r%(x*2)==0)
+        {
+            ans.pb(x*2);
+            x*=2;
+        }
+        else 
+        {
+            for(int i=3;i<=r;i++)
+            {
+                if(r%(x*i)==0)
+                {
+                    ans.pb(x*i);
+                    x*=i;
+                    break;
+                }
+            }
+        }
+    }
+    fa(x,ans) cout<<x <<" ";
 }
 signed main()
 {

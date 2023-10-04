@@ -79,15 +79,29 @@ int dy[4]={0,-1,1,0};
 //     }
 //     return (a*(tmp*tmp)%mod)%mod;
 // }
+/*
+    aaaa
+    bc
+    bcaaa -> abcaa -> aabca --> aaabc
+    bcbcaa -> abcbca -> aabcbc -> bcabca ->bcaabc -> abcabc
+    bcbcbca ->abcbcbc -> bcabcbc -> bcbcabc 
+    bcbcbcbc
+*/
 void solve()
 {
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+    string s,t; cin>>s>>t;
+    sort(all(t));
+    int ans= pow(2,(int)s.sz);
+    if(t=="a") cout<<1 nl;
+    else if(t[0]=='a') cout<<-1 nl;
+    else cout<<ans nl;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //cin >> u;
+    //
+    cin >> u;
     while (u--)
     {
         solve();

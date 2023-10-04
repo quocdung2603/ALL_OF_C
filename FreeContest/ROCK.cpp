@@ -81,7 +81,30 @@ int dy[4]={0,-1,1,0};
 // }
 void solve()
 {
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+    int n,k; cin>>n>>k;
+    vi a(n),b(n);
+    vi ok(n,0);
+    for(int i=0;i<n;i++) cin>>a[i];
+    sort(rall(a));
+    int j=0;
+    int s=0;
+    for(int i=0;i<n-k;i++)
+    {
+        if(ok[i]==0)
+        {
+            b[i]=a[j++];
+            b[i+k]=a[j++];
+            ok[i]=1;
+        }
+        else 
+        {
+            b[i+k]=a[j++];
+        }
+        s+=abs(b[i]-b[i+k]);
+    }
+    //fa(x,b) cout<<x<<" ";
+    cout<<s;
+    
 }
 signed main()
 {

@@ -81,7 +81,18 @@ int dy[4]={0,-1,1,0};
 // }
 void solve()
 {
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+    int n,q; cin>>n>>q;
+    vector<int> a(n+1,0);
+    for(int i=0;i<q;i++)
+    {
+        int x,y; cin>>x>>y;
+        for(int i=x;i<=y;i++) a[i]++;
+    }
+    for(int i=1;i<=n;i++)
+    {
+        if(a[i]%2==0) cout<<0<<" ";
+        else cout<<1<<" ";
+    }
 }
 signed main()
 {

@@ -81,13 +81,30 @@ int dy[4]={0,-1,1,0};
 // }
 void solve()
 {
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+    int a,b,x,y; cin>>a>>b>>x>>y;
+    int cnt1=0,cnt2=0;
+    while(a*x != b*y)
+    {
+        if(a*x < b*y)
+        {
+            a++;
+            cnt1++;
+        }
+        else if(a*x > b*y)
+        {
+            b++;
+            cnt2++;
+        }
+        else break;
+    }
+    cout<<cnt1+cnt2 nl;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //cin >> u;
+    //
+    cin >> u;
     while (u--)
     {
         solve();

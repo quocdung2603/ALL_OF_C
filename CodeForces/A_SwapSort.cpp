@@ -81,7 +81,30 @@ int dy[4]={0,-1,1,0};
 // }
 void solve()
 {
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+    int n; cin>>n;
+    vi a(n);
+    vector<pair<int,int>>ans;
+    for(int i=0;i<n;i++) cin>>a[i];
+    for(int i=0;i<n-1;i++)
+    {
+        int k=i,mn=a[i];
+        for(int j=i+1;j<n;j++)
+        {
+            if(a[j] < mn)
+            {
+                mn=a[j];
+                k=j;
+            }
+        }
+        if(i!=k)
+        {
+            swap(a[i],a[k]);
+            ans.pb({i,k});
+        }
+    }
+    cout<<ans.sz nl;
+    fa(x,ans) cout<<x.fi<<" "<<x.se nl;
+    // fa(x,a) cout<<x<<" ";
 }
 signed main()
 {

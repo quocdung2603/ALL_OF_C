@@ -79,15 +79,61 @@ int dy[4]={0,-1,1,0};
 //     }
 //     return (a*(tmp*tmp)%mod)%mod;
 // }
+vector<int> findDivisors(int n) {
+    vector<int> divisors;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            divisors.push_back(i);
+            if (i != n / i) {
+                divisors.push_back(n / i);
+            }
+        }
+    }
+    return divisors;
+}
+int snt(int n)
+{
+    if(n<2) return 0;
+    if(n==2 || n==3) return 1;
+    if(n%2==0 || n%3==0) return 0;
+    for(int i=5;i<=sqrt(n);i+=6)
+    {
+        if(n%i==0 || n%(i+2)==0) return 0;
+    }
+    return 1;
+}
 void solve()
 {
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
+    int a,b; cin>>a>>b;
+    if(b<=3) cout<<-1 nl;
+    else if(a==b)
+    {
+        if(a==1 || snt(a)==1) cout<<-1 nl;
+        else 
+        {
+            if(a%2==0) cout<<2<<" "<<a-2 nl;
+            else 
+            {
+                vi c= findDivisors(a);
+                cout<<c[0] <<" "<<a-c[0] nl;
+            }
+        }
+    }
+    else 
+    {
+        if(a%2!=0) a++;
+        if(b%2!=0) b--;
+        if(a>2) cout<<2<<" "<<a-2 nl;
+        else if(b>2) cout<<2<<" "<<b-2 nl;
+        else cout<<-1 nl;
+    }
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //cin >> u;
+    //
+    cin >> u;
     while (u--)
     {
         solve();
