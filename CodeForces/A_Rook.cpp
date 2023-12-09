@@ -81,24 +81,24 @@ int dy[4]={0,-1,1,0};
 // }
 void solve()
 {
-    int n; cin>>n;
-    vi a(n);
-    for(int i=0;i<n;i++) cin>>a[i];
-    int s=0;
-    for(int i=1;i<n;i++)
+    string s; cin>>s;
+    for(char j='1';j<='8';j++)
     {
-        int k= a[i]-a[i-1];
-        if(k!=1) s+=k;
+        if(j==s[1]) continue;
+        cout<<s[0]<<j nl;
     }
-    //cout<<s nl;
-    if(s%2==0 && s>0) cout<<"Hieu" nl;
-    else cout<<"RR" nl;
+    for(char i='a';i<='h';i++)
+    {
+        if(s[0]!=i)
+        {
+            cout<<i<<s[1] nl;
+        }
+    }
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //
     cin >> u;
     while (u--)
     {

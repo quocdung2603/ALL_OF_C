@@ -8,5 +8,6 @@
         "cstdlib": "cpp",
         "new": "cpp",
         "*.tcc": "cpp"
-    }
+    },
+    "cmake.configureOnOpen": true
 }

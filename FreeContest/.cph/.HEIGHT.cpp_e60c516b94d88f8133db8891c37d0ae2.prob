@@ -1,0 +1,1 @@
+{"name":"Local: HEIGHT","url":"d:\\ALL_OF_C\\FreeContest\\HEIGHT.cpp","tests":[{"id":1696682522849,"input":"5\n1 2 3 4 5\n6 6 6 6 6","output":""},{"id":1696682604154,"input":"5\n5 3 2 1 4\n8 4 5 2 6","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\ALL_OF_C\\FreeContest\\HEIGHT.cpp","group":"local","local":true}

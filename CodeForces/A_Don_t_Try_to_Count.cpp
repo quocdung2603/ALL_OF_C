@@ -81,18 +81,16 @@ int dy[4]={0,-1,1,0};
 // }
 void solve()
 {
-    int n; cin>>n;
-    vi a(n);
-    for(int i=0;i<n;i++) cin>>a[i];
-    int s=0;
-    for(int i=1;i<n;i++)
+    string n,m; cin>>n>>m;
+    string x,s; cin>>x>>s;
+    int cnt=0;
+    while(x.sz<=100 && x.find(s)==string::npos) 
     {
-        int k= a[i]-a[i-1];
-        if(k!=1) s+=k;
+        x+=x;
+        cnt++;
     }
-    //cout<<s nl;
-    if(s%2==0 && s>0) cout<<"Hieu" nl;
-    else cout<<"RR" nl;
+    if(x.find(s)==string::npos) cout<<-1 nl;
+    else cout<<cnt nl;
 }
 signed main()
 {

@@ -82,23 +82,16 @@ int dy[4]={0,-1,1,0};
 void solve()
 {
     int n; cin>>n;
-    vi a(n);
-    for(int i=0;i<n;i++) cin>>a[i];
-    int s=0;
-    for(int i=1;i<n;i++)
+    for(int i=1;i<=n;i++)
     {
-        int k= a[i]-a[i-1];
-        if(k!=1) s+=k;
+        cout<<i*2+1<<" ";
     }
-    //cout<<s nl;
-    if(s%2==0 && s>0) cout<<"Hieu" nl;
-    else cout<<"RR" nl;
+    cout<<endl;
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //
     cin >> u;
     while (u--)
     {

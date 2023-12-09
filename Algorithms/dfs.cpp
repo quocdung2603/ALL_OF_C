@@ -182,7 +182,7 @@ void solve()
     // if(dfs(1,0)) cout<<"yes";
     // else cout<<"No";
     //neu do thi chua lien thong
-    for(int i=1;i<=n;i++)
+    for(int i=0;i<=0;i++)
     {
         if(!visited[i])
         {

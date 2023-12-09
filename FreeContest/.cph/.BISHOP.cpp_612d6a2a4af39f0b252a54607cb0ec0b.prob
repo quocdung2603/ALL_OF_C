@@ -1,0 +1,1 @@
+{"name":"Local: BISHOP","url":"d:\\ALL_OF_C\\FreeContest\\BISHOP.cpp","tests":[{"id":1696686882397,"input":"4 4\n1 1 2 2\n3 3 4 4\n5 5 6 6\n7 7 8 8","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\ALL_OF_C\\FreeContest\\BISHOP.cpp","group":"local","local":true}

@@ -82,24 +82,32 @@ int dy[4]={0,-1,1,0};
 void solve()
 {
     int n; cin>>n;
-    vi a(n);
-    for(int i=0;i<n;i++) cin>>a[i];
-    int s=0;
+    vector<pair<int,int>> a(n),b(n);
+    for(int i=0;i<n;i++) cin>>a[i].fi;
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i].se;
+        b[i].fi = (a[i].se-a[i].fi);
+        b[i].se = i+1;
+    }
+    sort(rall(b));
+    vi ans;
+    ans.pb(b[0].se);
     for(int i=1;i<n;i++)
     {
-        int k= a[i]-a[i-1];
-        if(k!=1) s+=k;
+        if(b[i].fi==b[0].first)
+        {
+            ans.pb(b[i].second);
+        }
     }
-    //cout<<s nl;
-    if(s%2==0 && s>0) cout<<"Hieu" nl;
-    else cout<<"RR" nl;
+    sort(all(ans));
+    fa(x,ans) cout<<x<<" ";
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //
-    cin >> u;
+    //cin >> u;
     while (u--)
     {
         solve();

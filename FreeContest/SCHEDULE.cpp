@@ -70,36 +70,46 @@ int dy[4]={0,-1,1,0};
 //         result=result*i/j;
 //     return result;
 // }
-// int bin_pow(int a,int b,int mod)
-// {
-//     if(b==0)return 1;
-//     int tmp=bin_pow(a,b/2,mod);
-//     if((b&1)==false){
-//         return (tmp*tmp)%mod;
-//     }
-//     return (a*(tmp*tmp)%mod)%mod;
-// }
+int bin_pow(int a,int b,int mod)
+{
+    if(b==0)return 1;
+    int tmp=bin_pow(a,b/2,mod);
+    if((b&1)==false){
+        return (tmp*tmp)%mod;
+    }
+    return (a*(tmp*tmp)%mod)%mod;
+}
 void solve()
 {
-    int n; cin>>n;
+    int n,m; cin>>n>>m;
     vi a(n);
-    for(int i=0;i<n;i++) cin>>a[i];
-    int s=0;
-    for(int i=1;i<n;i++)
+    for(int i=0;i<n;i++)
     {
-        int k= a[i]-a[i-1];
-        if(k!=1) s+=k;
+        cin>>a[i];
     }
-    //cout<<s nl;
-    if(s%2==0 && s>0) cout<<"Hieu" nl;
-    else cout<<"RR" nl;
+    if(m==1)
+    {
+        int s=0;
+        for(int i=0;i<n;i++)
+        {
+            s=s+bin_pow(2,a[i],mod);
+            s%=mod;
+        }
+        cout<<s;
+    }
+    else 
+    {
+        sort(all(a));
+        int k = bin_pow(2,a[n-1],mod);
+        k=k%mod;
+        cout<<k;
+    }
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //
-    cin >> u;
+    //cin >> u;
     while (u--)
     {
         solve();

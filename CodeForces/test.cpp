@@ -1,96 +1,122 @@
-#include <bits/stdc++.h>
-using namespace std;
-#define nl << '\n'
-#define fi first
-#define se second
-#define vi vector<int>
-#define vec(type,name, sl) vector<type>name(sl)
-#define yes cout << "YES"
-#define no cout << "NO"
-#define int long long
-#define double long double
-#define pb push_back
-#define all(r) r.begin(), r.end()
-#define rall(r) r.rbegin(), r.rend()
-#define sz size()
-#define fon(i, l, r) for (int i = l; i <= r; i++)
-#define fod(i, r, l) for (int i = r; i >= l; i--)
-#define fa(x, a) for (auto x : a)
-#define gcd __gcd
-#define fast_in_out()                 \
-ios_base::sync_with_stdio(false); \
-cin.tie(NULL);
-const int maxN = 1e6 + 2;
-const int minN = 1e5 + 10;
-const int mod = 1e9 + 7;
-const int INF = 1e18;
-/*
-var a = document.querySelectorAll(".MJX_Assistive_MathML")
-a.forEach(s=> s.remove())
-*/
-
-int dx[4]={-1,0,0,1};
-int dy[4]={0,-1,1,0};
-
-//void file() {freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);}
-// void sieve(int N)
-// {
-//     bool isPrime[N+1];
-//     for(int i=0; i<=N; i++)
-//             isPrime[i] = true;
-//     isPrime[0]=false;
-//     isPrime[1]=false;
-//     for(int i=2; i*i<=N; i++)
-//         {
-//         if(isPrime[i]==true)
-//             {
-//                 for(int j=i*i; j<=N; j+=i)
-//                     isPrime[j]=false;
-//         }
-//     }
-// }
-// vector<int> factorize(int n)
-// {
-//     vector <int> res;
-//     for (int i=2; i*i<=n; i++)
-//         {
-//         while (n%i==0)
-//             {
-//             res.push_back(i);
-//             n/=i;
-//         }
-//     }
-//     if (n!=1) res.push_back(n);
-//     return res;
-// }
-// int kCn(int k, int n)
-// {
-//     int result=1;
-//     for (int i=n, j=1; j<=k; i--, j++) 
-//         result=result*i/j;
-//     return result;
-// }
-// int bin_pow(int a,int b,int mod)
-// {
-//     if(b==0)return 1;
-//     int tmp=bin_pow(a,b/2,mod);
-//     if((b&1)==false){
-//         return (tmp*tmp)%mod;
-//     }
-//     return (a*(tmp*tmp)%mod)%mod;
-// }
-void solve()
-{
-    for(int i=0;i<1000;i++) cout<<"moahhh ";
-}
-signed main()
-{
-    fast_in_out();
-    int u = 1;
-    //cin >> u;
-    while (u--)
-    {
-        solve();
-    }
-    return 0;
-}
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
