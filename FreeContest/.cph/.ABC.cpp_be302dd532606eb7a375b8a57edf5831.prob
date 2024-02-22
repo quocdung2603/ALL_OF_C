@@ -1,1 +1,0 @@
-{"name":"Local: ABC","url":"d:\\ALL_OF_C\\FreeContest\\ABC.cpp","tests":[{"id":1688215556100,"input":"3","output":"3"},{"id":1688215727220,"input":"1000000","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\ALL_OF_C\\FreeContest\\ABC.cpp","group":"local","local":true}

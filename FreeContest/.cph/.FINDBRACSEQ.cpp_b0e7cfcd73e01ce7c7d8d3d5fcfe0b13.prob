@@ -1,1 +1,0 @@
-{"name":"Local: FINDBRACSEQ","url":"d:\\ALL_OF_C\\FreeContest\\FINDBRACSEQ.cpp","tests":[{"id":1687964321794,"input":"(())","output":"4"},{"id":1687964326288,"input":"(ab()c()","output":"4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\ALL_OF_C\\FreeContest\\FINDBRACSEQ.cpp","group":"local","local":true}

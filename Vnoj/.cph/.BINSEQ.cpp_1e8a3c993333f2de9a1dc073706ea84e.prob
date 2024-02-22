@@ -1,1 +1,0 @@
-{"name":"Local: BINSEQ","url":"d:\\ALL_OF_C\\Vnoj\\BINSEQ.cpp","tests":[{"id":1688396135033,"input":"01010101","output":"011001"},{"id":1688396140889,"input":"001","output":"001"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\ALL_OF_C\\Vnoj\\BINSEQ.cpp","group":"local","local":true}

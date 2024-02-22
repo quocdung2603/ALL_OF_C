@@ -1,1 +1,0 @@
-{"name":"Local: test","url":"d:\\ALL_OF_C\\FreeContest\\test.cpp","tests":[{"id":1696687382642,"input":"4 4\n1 1 2 2\n3 3 4 4\n5 5 6 6\n7 7 8 8","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\ALL_OF_C\\FreeContest\\test.cpp","group":"local","local":true}

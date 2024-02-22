@@ -1,1 +1,0 @@
-{"name":"Local: BQUERY","url":"d:\\ALL_OF_C\\FreeContest\\BQUERY.cpp","tests":[{"id":1692453055188,"input":"3 4 6\n2 4 5\n3 1 3 3 4\n1 1 4\n2 2 3\n3 1 1 2 3\n3 2 1 3 1\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\ALL_OF_C\\FreeContest\\BQUERY.cpp","group":"local","local":true}

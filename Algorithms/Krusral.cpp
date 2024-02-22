@@ -24,17 +24,13 @@ const int maxN = 1e6 + 2;
 const int minN = 1e5 + 10;
 const int mod = 1e9 + 7;
 const int INF = 1e18;
-/*
-var a = document.querySelectorAll(".MJX_Assistive_MathML")
-a.forEach(s=> s.remove())
-*/
 
-int dx[4]={-1,0,0,1};
-int dy[4]={0,-1,1,0};
-
+int n,m,d=0;
 int parent[100001], size[100001];
+vector <pair<int, pair<int, int>>> t(100001);
+
 void Make_set(int n) {
-	for (int i=0; i<n; i++) {
+	for (int i=1; i<=n; i++) {
 		parent[i]=i;
 		size[i]=1;
 	}
@@ -43,30 +39,48 @@ int Find(int u) {
 	if (u==parent[u]) return u;
 	return parent[u]=Find(parent[u]);
 }
-void Union(int u, int v) {
+bool Union(int u, int v) {
 	u=Find(u); v=Find(v);
 	if (u!=v) {
 		if (size[u]<size[v]) swap(u, v);
 		parent[v]=u;
 		size[u]+=size[v];
+        return true;
 	}
+    return false;
+}
+void Kruskal()
+{
+    vector<pair<int,pair<int,int>>> MST;
+    d=0;
+    for (int i=0; i<m; i++) {
+        int u=Find(t[i].second.first), v=Find(t[i].second.second);
+        if(Union(u,v) == true)
+        {
+            pair<int,pair<int,int>> tmp;
+            tmp.second.first = t[i].second.first;
+            tmp.second.second = t[i].second.second;
+            tmp.first = t[i].first;
+            MST.push_back(tmp);
+            d+=t[i].first;
+        }
+    }
+    cout<<"Do dai cay khung nho nhat: "<<d <<endl;
+    cout<<"Cay khung nho nhat la: "<<endl;
+    for(auto it: MST)
+    {
+        cout<<it.second.first<<" "<<it.second.second<<" "<<it.first<<endl;
+    }
 }
 void solve() { 
     // tìm cây khung nhỏ nhất
-    int n, m; cin >> n >> m;
+    cin >> n >> m;
     Make_set(n);
-    vector <pair<int, pair<int, int>>> t(m);
     for (int i=0; i<m; i++) {
         cin >> t[i].second.first >> t[i].second.second >> t[i].first;
     }
-    sort(all(t));
-    for (int i=0; i<m; i++) {
-        int u=Find(t[i].second.first), v=Find(t[i].second.second);
-        if (u!=v) {
-            cout << t[i].second.first << " " << t[i].second.second nl;
-            Union(t[i].second.first, t[i].second.second);
-        }
-    }
+    sort(t.begin(), t.begin()+m);
+    Kruskal();
 }
 signed main()
 {

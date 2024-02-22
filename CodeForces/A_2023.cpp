@@ -24,12 +24,45 @@ const int maxN = 1e6 + 2;
 const int minN = 1e5 + 10;
 const int mod = 1e9 + 7;
 const int INF = 1e18;
-//void file() {freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);}
 /*
 var a = document.querySelectorAll(".MJX_Assistive_MathML")
 a.forEach(s=> s.remove())
 */
 
+int dx[4]={-1,0,0,1};
+int dy[4]={0,-1,1,0};
+
+//void file() {freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);}
+// void sieve(int N)
+// {
+//     bool isPrime[N+1];
+//     for(int i=0; i<=N; i++)
+//             isPrime[i] = true;
+//     isPrime[0]=false;
+//     isPrime[1]=false;
+//     for(int i=2; i*i<=N; i++)
+//         {
+//         if(isPrime[i]==true)
+//             {
+//                 for(int j=i*i; j<=N; j+=i)
+//                     isPrime[j]=false;
+//         }
+//     }
+// }
+// vector<int> factorize(int n)
+// {
+//     vector <int> res;
+//     for (int i=2; i*i<=n; i++)
+//         {
+//         while (n%i==0)
+//             {
+//             res.push_back(i);
+//             n/=i;
+//         }
+//     }
+//     if (n!=1) res.push_back(n);
+//     return res;
+// }
 // int kCn(int k, int n)
 // {
 //     int result=1;
@@ -48,50 +81,34 @@ a.forEach(s=> s.remove())
 // }
 void solve()
 {
-    int n,m,q; cin>>n>>m>>q;
-    vector<vector<int>> a(n,vector<int>(m,0));
-    while(q--)
+    int n,k; cin>>n>>k;
+    int s=1;
+    for(int i=0;i<n;i++) 
     {
-        int op; cin>>op;
-        if(op==1)   
+        int t; cin>>t;
+        s*=t;
+    }
+    if(2023%s==0)
+    {
+        yes nl;
+        int tmp = 2023/s;
+        for(int i=0;i<k-1;i++)
         {
-            int r,x; cin>>r>>x;
-            r--;
-            for(int i=0;i<m;i++)
-            {
-                a[r][i]+=x;
-            }
+            cout<<1<<" ";
         }
-        else if(op==2)
-        {
-            int c,x; cin>>c>>x;
-            c--;
-            for(int i=0;i<n;i++)
-            {
-                a[i][c]+=x;
-            }
-        }
-        else if(op==3)
-        {
-            int x1,y1,x2,y2; cin>>x1>>y1>>x2>>y2;
-            x1--;x2--;y1--;y2--;
-            int mx=-INF;
-            for(int i=x1;i<=x2;i++)
-            {
-                for(int j=y1;j<=y2;j++)
-                {
-                    mx=max(mx,a[i][j]);
-                }
-            }
-            cout<<mx nl;
-        }
+        cout<<tmp nl;
+    }
+    else 
+    {
+        no nl;
     }
 }
 signed main()
 {
     fast_in_out();
     int u = 1;
-    //cin >> u;
+    //
+    cin >> u;
     while (u--)
     {
         solve();
